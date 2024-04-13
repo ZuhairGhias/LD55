@@ -135,7 +135,7 @@ public class MobBase : MonoBehaviour, IDamageable
     {
         Health -= dmg;
         if (Health <= 0) die();
-        Debug.Log(gameObject.name + " has been struck!");
+        //Debug.Log(gameObject.name + " has been struck!");
     }
 
     void die()

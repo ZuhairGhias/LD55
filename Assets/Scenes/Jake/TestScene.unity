@@ -123,6 +123,64 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &103068907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103068909}
+  - component: {fileID: 103068908}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &103068908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103068907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce311fc110323f84294d77c44bd222c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1392686990}
+  horizontalSpawnDistance: 14
+  verticalSpawnRange: 6
+  waves:
+  - spawnTriggerX: -5
+    enemies:
+    - {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+  - spawnTriggerX: 0
+    enemies:
+    - {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+  - spawnTriggerX: 5
+    enemies:
+    - {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+    - {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+--- !u!4 &103068909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103068907}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 5.53, z: -0.062167477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &432279938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,11 +252,11 @@ PrefabInstance:
       objectReference: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
     - target: {fileID: 2948830465885097077, guid: c70930e0621b72b46b6a27913c0df067, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.3
+      value: -11.73
       objectReference: {fileID: 0}
     - target: {fileID: 2948830465885097077, guid: c70930e0621b72b46b6a27913c0df067, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.84
+      value: -1.94
       objectReference: {fileID: 0}
     - target: {fileID: 2948830465885097077, guid: c70930e0621b72b46b6a27913c0df067, type: 3}
       propertyPath: m_LocalPosition.z
@@ -766,3 +824,4 @@ SceneRoots:
   - {fileID: 1589342555}
   - {fileID: 1504182825}
   - {fileID: 1289570483}
+  - {fileID: 103068909}

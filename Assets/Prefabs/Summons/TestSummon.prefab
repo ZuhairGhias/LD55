@@ -101,4 +101,7 @@ MonoBehaviour:
   targetRange: 10
   attackRange: 0.6
   attackDuration: 1
-  maxHealth: 100
+  maxHealth: 5
+  punchRadius: 1
+  punchDistance: 1
+  dmg: 1

@@ -7,6 +7,8 @@ public class TestEnemy : EnemyBase
 {
     protected override GameObject chooseTarget()
     {
+        opponents = GameObject.FindGameObjectsWithTag("Summon");
+
         return player;
     }
 

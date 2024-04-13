@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SummonBase : MobBase
 {
-    void Start()
+    protected override void Start()
     {
-        opponents = GameObject.FindGameObjectsWithTag("Enemy");
+        base.Start();
     }
 }

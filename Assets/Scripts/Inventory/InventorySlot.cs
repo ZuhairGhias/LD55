@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
-public struct InventorySlot
+public class InventorySlot
 {
 
     public InventoryItem InventoryItem;
@@ -14,22 +14,22 @@ public struct InventorySlot
     private int capacity;
 
     // Only add if not at capacity. Return false if already at capacity. True if successfully added.
-    public bool Add ()
+    public bool Add(int i = 1)
     {
         if (!IsFull())
         {
-            count++;
+            count =  Mathf.Min(count + i, capacity);
             return true;
         }
         return false;
     }
 
     // Only deplete if not empty. Return false if empty. True is successfully depleted.
-    public bool Use()
+    public bool Use(int i = 1)
     {
         if (!IsEmpty())
         {
-            count--;
+            count = Mathf.Max(count - i, 0);
             return true;
         }
         return false;

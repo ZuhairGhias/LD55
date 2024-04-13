@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static InventoryItem;
 using static PlayerController;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public static Action<PlayerState> OnPlayerStateChanged;
+
+    private PlayerSummoner summoner;
 
     [SerializeField]
     public PlayerState _currentState = PlayerState.READY;
@@ -46,6 +49,13 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         DebugUtils.HandleErrorIfNullGetComponent(rb, this);
+        summoner = GetComponent<PlayerSummoner>();
+        DebugUtils.HandleErrorIfNullGetComponent(summoner, this);
+    }
+
+    public void Stage(ItemClass item)
+    {
+        summoner.StageItem(item);
     }
 
     public enum PlayerState

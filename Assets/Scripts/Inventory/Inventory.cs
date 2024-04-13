@@ -60,6 +60,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+        Destroy(this);
 
         return false;
     }

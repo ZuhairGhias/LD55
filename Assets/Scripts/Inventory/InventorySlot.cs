@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class InventorySlot : MonoBehaviour
+[System.Serializable]
+public struct InventorySlot
 {
 
     public InventoryItem InventoryItem;
-    public int count = 0;
-    public readonly int capacity = 5;
+    [SerializeField]
+    private int count;
+    [SerializeField]
+    private int capacity;
 
     // Only add if not at capacity. Return false if already at capacity. True if successfully added.
     public bool Add ()

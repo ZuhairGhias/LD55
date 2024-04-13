@@ -27,8 +27,9 @@ public class PlayerSummoner : MonoBehaviour
             {
                 if (CanMakeRecipe(recipe))
                 {
-                    Debug.Log("Made a recipe");
+                    Debug.Log("Made a recipe for " + recipe.Summon.name);
                     inventory.ConsumeStagedItems();
+                    Instantiate(recipe.Summon, transform.position, Quaternion.identity);
                 }
             }
 

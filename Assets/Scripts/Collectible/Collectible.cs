@@ -8,11 +8,14 @@ public class Collectible : MonoBehaviour
     [SerializeField]
     private ItemClass itemClass;
 
-    private void OnTriggerEnter(Collider other) {
-        Inventory inventory = other.GetComponent<Inventory>();
+    private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("Collectible collided with "+other);
+        Inventory inventory = other.gameObject.GetComponent<Inventory>();
+        
         if (inventory != null) {
+            Debug.Log("Inventory: "+inventory.name);
             inventory.TryAddItem(itemClass);
-            GameObject.Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 

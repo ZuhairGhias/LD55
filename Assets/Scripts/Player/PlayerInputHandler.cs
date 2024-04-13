@@ -19,6 +19,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public const string HORIZONTAL = "Horizontal";
     public const string VERTICAL = "Vertical";
+    public const string ITEM1 = "Item1";
+    public const string ITEM2 = "Item2";
 
     // Update is called once per frame
     void Update()
@@ -29,5 +31,14 @@ public class PlayerInputHandler : MonoBehaviour
         movement.Normalize();
 
         controller.Move(movement);
+
+        if (Input.GetButtonDown(ITEM1))
+        {
+            controller.Stage(InventoryItem.ItemClass.CRUSTY_BREAD);
+        }
+        else if(Input.GetButtonDown(ITEM2))
+        {
+            controller.Stage(InventoryItem.ItemClass.CANDY);
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static PlayerController;
 
 public class PlayerController : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] public float moveSpeed = 10f;
 
-    private CharacterController controller;
+    private Rigidbody2D rb;
 
     public static Action<PlayerState> OnPlayerStateChanged;
 
@@ -35,15 +36,16 @@ public class PlayerController : MonoBehaviour
     {
         if(_currentState == PlayerState.READY)
         {
-            controller.Move(vector2 * Time.deltaTime * moveSpeed);
+            
+            rb.MovePosition(rb.position + ( vector2 * Time.deltaTime * moveSpeed));
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();
-        DebugUtils.HandleErrorIfNullGetComponent(controller, this);
+        rb = GetComponent<Rigidbody2D>();
+        DebugUtils.HandleErrorIfNullGetComponent(rb, this);
     }
 
     public enum PlayerState

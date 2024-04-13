@@ -14,13 +14,16 @@ public class MobBase : MonoBehaviour, IDamageable
     protected GameObject target;
     protected GameObject[] opponents;
     protected float attackTimer;
+    protected int _health;
 
-    void Start()
+    protected virtual void Start()
     {
-        health = maxHealth;
+        Health = maxHealth;
+
+        SET_STATE(MobState.CHASE);
     }
 
-    void Update()
+    protected virtual void Update()
     {
         switch (state)
         {
@@ -51,26 +54,28 @@ public class MobBase : MonoBehaviour, IDamageable
 
     private void CHASE_START()
     {
-
+        target = chooseTarget();
     }
 
     private void CHASE_UPDATE()
     {
-        target = chooseTarget();
-        Move(target);
+        if (target == null || !target.activeSelf) target = chooseTarget();
+        else
+        {
+            Move(target);
 
-        if (Vector3.Distance(transform.position, target.transform.position) <= attackRange) SET_STATE(MobState.ATTACK);
+            if (Vector3.Distance(transform.position, target.transform.position) <= attackRange) SET_STATE(MobState.ATTACK);
+        }
     }
 
     private void ATTACK_START()
     {
         attackTimer = attackDuration;
+        Attack();
     }
 
     private void ATTACK_UPDATE()
     {
-        Attack();
-
         attackTimer -= Time.deltaTime;
         if (attackTimer <= 0) SET_STATE(MobState.CHASE);
     }
@@ -107,23 +112,24 @@ public class MobBase : MonoBehaviour, IDamageable
 
     virtual protected void Attack() { } // logic for the attack action. will be different for each enemy/summon
 
-    public int health
+    public int Health
     {
         get
         {
-            return health;
+            return _health;
         }
 
         set
         {
-            health = value;
+            _health = value;
         }
     }
 
     public void damage(int dmg)
     {
-        health -= dmg;
-        if (health <= 0) die();
+        Health -= dmg;
+        if (Health <= 0) die();
+        Debug.Log(gameObject.name + " has been struck!");
     }
 
     void die()

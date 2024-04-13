@@ -6,10 +6,10 @@ public class EnemyBase : MobBase
 {
     protected GameObject player;
 
-    void Start()
+    protected override void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        opponents = GameObject.FindGameObjectsWithTag("Summon");
+        base.Start();
     }
 }

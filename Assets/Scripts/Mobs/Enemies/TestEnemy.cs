@@ -9,7 +9,10 @@ public class TestEnemy : EnemyBase
     {
         opponents = GameObject.FindGameObjectsWithTag("Summon");
 
-        return player;
+        GameObject closestOp = findClosestOpponentInTargetRange();
+        if (closestOp == null) closestOp = player;
+
+        return closestOp;
     }
 
     protected override void Attack()

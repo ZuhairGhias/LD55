@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
     /// <param name="item"></param>
     public bool TryAddItem(ItemClass item)
     {
-        if (slots == null)
+        if (slots != null)
         {
             foreach (InventorySlot slot in slots)
             {

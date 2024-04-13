@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
-public struct InventorySlot
+public class InventorySlot
 {
 
     public InventoryItem InventoryItem;
@@ -14,7 +14,7 @@ public struct InventorySlot
     private int capacity;
 
     // Only add if not at capacity. Return false if already at capacity. True if successfully added.
-    public bool Add ()
+    public bool Add()
     {
         if (!IsFull())
         {

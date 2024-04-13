@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7107139214482002584}
   - component: {fileID: -1715425213092570804}
   - component: {fileID: 8063186855762026668}
+  - component: {fileID: 8652466181116128648}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -128,10 +129,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots:
   - InventoryItem: {fileID: 11400000, guid: 47878100f0baab44f848bb141cb29b37, type: 2}
-    count: 0
+    count: 5
     capacity: 10
   - InventoryItem: {fileID: 11400000, guid: e6e5ae8f7142f1341a61fcc7ef91456c, type: 2}
-    count: 0
+    count: 5
     capacity: 10
 --- !u!50 &8063186855762026668
 Rigidbody2D:
@@ -160,3 +161,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8652466181116128648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166871598216556809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef4dda87be31fa4aab9df7e18c8f580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

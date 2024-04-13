@@ -8,7 +8,7 @@ public class EnemyBase : MobBase
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
 
         opponents = GameObject.FindGameObjectsWithTag("Summon");
     }

@@ -53,4 +53,8 @@ public class PlayerController : MonoBehaviour
         READY,
         WAIT
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("Player collided with "+other);
+    }
 }

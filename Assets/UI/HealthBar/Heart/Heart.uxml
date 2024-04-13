@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/HealthBar/Heart/Heart.uss?fileID=7433441132597879392&amp;guid=583fbb34dbc2fe04b9210ccd7181c3f1&amp;type=3#Heart" />
+    <ui:VisualElement name="HeartFillMask" >
+        <ui:VisualElement name="HeartBackground" >
+            <ui:VisualElement name="HeartForeground" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="HeartOutlineMask" >
+        <ui:VisualElement name="HeartBorder" />
+    </ui:VisualElement>
+</ui:UXML>

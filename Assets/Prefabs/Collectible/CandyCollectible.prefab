@@ -52,9 +52,21 @@ PrefabInstance:
       propertyPath: itemClass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2103022154409532324, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.1416667
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103022154409532324, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.5166667
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764482550847091678, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c832148665d3f694fad1af5377965300, type: 3}
     - target: {fileID: 6232697632742975670, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
       propertyPath: m_Name
-      value: Collectible Variant
+      value: CandyCollectible
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

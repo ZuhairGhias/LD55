@@ -15,4 +15,4 @@ MonoBehaviour:
   ItemAmounts:
   - item: 0
     amount: 3
-  Summon: {fileID: 0}
+  Summon: {fileID: 3500240796351991549, guid: 5db0fd642562867488bd39a216777d23, type: 3}

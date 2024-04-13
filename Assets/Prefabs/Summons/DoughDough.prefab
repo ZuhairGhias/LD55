@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 274777321939963609}
   - component: {fileID: 4788771908049670550}
   - component: {fileID: 2233039428950169528}
+  - component: {fileID: -2745870422306358823}
   m_Layer: 0
   m_Name: DoughDough
   m_TagString: Summon
@@ -103,5 +104,40 @@ MonoBehaviour:
   attackDuration: 3
   maxHealth: 3
   meleeRadius: 1
-  meleeDistance: 1
+  meleeDistance: 2
   meleeDamage: 1
+--- !u!58 &-2745870422306358823
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273716052559545963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

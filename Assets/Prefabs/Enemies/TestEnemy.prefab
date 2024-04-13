@@ -99,11 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2396699a643cc74f9659aba08525926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
   targetRange: 10
   attackRange: 2
-  attackDuration: 1
-  maxHealth: 3
+  attackDuration: 3
+  maxHealth: 2
+  meleeRadius: 1
+  meleeDistance: 2
+  meleeDamage: 1
 --- !u!50 &7295128551556223745
 Rigidbody2D:
   serializedVersion: 4

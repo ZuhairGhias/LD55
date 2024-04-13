@@ -10,6 +10,8 @@ public class MobBase : MonoBehaviour, IDamageable
     [SerializeField] public float attackDuration = 3.0f;
     [SerializeField] public int maxHealth = 100;
 
+    [SerializeField] public int meleeDamage;
+
     protected MobState state;
     protected GameObject target;
     protected GameObject[] opponents;
@@ -71,6 +73,7 @@ public class MobBase : MonoBehaviour, IDamageable
     private void ATTACK_START()
     {
         attackTimer = attackDuration;
+        if (target == null || !target.activeSelf) target = chooseTarget();
         Attack();
     }
 
@@ -80,7 +83,7 @@ public class MobBase : MonoBehaviour, IDamageable
         if (attackTimer <= 0) SET_STATE(MobState.CHASE);
     }
 
-    virtual protected GameObject chooseTarget() { return null; } // logic for choosing a target to chase and attack
+    virtual protected GameObject chooseTarget() { return null; }
 
     protected GameObject findClosestOpponentInTargetRange()
     {
@@ -110,7 +113,10 @@ public class MobBase : MonoBehaviour, IDamageable
         if (target != null) transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
     }
 
-    virtual protected void Attack() { } // logic for the attack action. will be different for each enemy/summon
+    virtual protected void Attack() 
+    {
+        target.GetComponent<MobBase>().damage(meleeDamage);
+    }
 
     public int Health
     {
@@ -129,7 +135,7 @@ public class MobBase : MonoBehaviour, IDamageable
     {
         Health -= dmg;
         if (Health <= 0) die();
-        Debug.Log(gameObject.name + " has been struck!");
+        //Debug.Log(gameObject.name + " has been struck!");
     }
 
     void die()

@@ -47,7 +47,5 @@ public class TestSummon : SummonBase
                 hit.collider.gameObject.GetComponent<MobBase>().damage(dmg);
             }
         }
-
-        base.Attack();
     }
 }

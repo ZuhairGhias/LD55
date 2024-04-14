@@ -5,17 +5,37 @@ using UnityEngine.UIElements;
 
 public class HUD : MonoBehaviour
 {
+    [SerializeField] private int maxHealth = 5;
     public float health;
     public List<InventorySlot> slots;
+    private VisualElement hud;
     private HealthBar healthBar;
     private HotBar hotBar;
+
 
     // Start is called before the first frame update
     void Start()
     {
         UIDocument ui = GetComponent<UIDocument>();
-        healthBar = (HealthBar)ui.rootVisualElement.Query("HealthBar");
-        hotBar = (HotBar)ui.rootVisualElement.Query("HotBar");
+        hud = ui.rootVisualElement;
+        hud.Clear();
+
+        // Set up health bar
+        healthBar = new HealthBar(maxHealth);
+        healthBar.name = "HealthBar";
+        hud.Add(healthBar);
+
+        // Set up hot bar
+        Sprite[] sprites = new Sprite[slots.Count];
+        int[] capacities = new int[slots.Count];
+        for (int i = 0; i < slots.Count; i++)
+        {
+            sprites[i] = slots[i].InventoryItem.ItemSprite;
+            capacities[i] = slots[i].capacity;
+        }
+        hotBar = new HotBar(sprites, capacities);
+        hotBar.name = "HotBar";
+        hud.Add(hotBar);
     }
 
     // Update is called once per frame

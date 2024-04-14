@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,14 @@ using UnityEngine;
 public class EnemyBase : MobBase
 {
     protected GameObject player;
+
+    public static Action EnemySpawned;
+    public static Action EnemyDestroyed;
+
+    private void Awake()
+    {
+        EnemySpawned?.Invoke();
+    }
 
     protected override void Start()
     {
@@ -44,11 +53,17 @@ public class EnemyBase : MobBase
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {        
-        if ( other.tag == "Hitbox" )
+    {
+        if (other.tag == "Hitbox")
         {
             damage(1);
             //Debug.Log("Bonked!");
         }
+
+    }
+
+    private void OnDestroy()
+    {
+        EnemyDestroyed?.Invoke();
     }
 }

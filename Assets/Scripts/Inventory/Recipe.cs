@@ -8,7 +8,7 @@ using static InventoryItem;
 public class Recipe : ScriptableObject
 {
     public List<RecipeLine> ItemAmounts;
-    public GameObject Summon;
+    public SummonBase Summon;
 }
 
 [Serializable]

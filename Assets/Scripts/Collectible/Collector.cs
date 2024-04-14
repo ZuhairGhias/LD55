@@ -17,7 +17,6 @@ public class Collector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Colleded");
         Collectible collectible = other.gameObject.GetComponent<Collectible>();
 
         if (collectible != null)

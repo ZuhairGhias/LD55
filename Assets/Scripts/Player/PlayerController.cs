@@ -6,13 +6,14 @@ using UnityEngine.UIElements;
 using static InventoryItem;
 using static PlayerController;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
 
     [SerializeField] public float moveSpeedX = 10f;
     [SerializeField] public float moveSpeedY = 2f;
     [SerializeField] public float attackDuration = 0.3f;
     [SerializeField] public GameObject attackHitbox;
+    [SerializeField] public int maxHealth = 100;
 
     private Rigidbody2D rb;
 
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
 
     private float attackTimer;
+
+    protected int _health;
 
     [SerializeField]
     public PlayerState _currentState = PlayerState.READY;
@@ -100,5 +103,29 @@ public class PlayerController : MonoBehaviour
             attackHitbox.transform.position = gameObject.transform.position + (Vector3.right * 2.5f * direction);
             attackHitbox.SetActive(true);
         }
+    }
+
+    public int Health
+    {
+        get
+        {
+            return _health;
+        }
+
+        set
+        {
+            _health = value;
+        }
+    }
+
+    public void damage(int dmg)
+    {
+        Health -= dmg;
+        if (Health <= 0) die();
+    }
+
+    void die()
+    {
+        Destroy(gameObject);
     }
 }

@@ -115,7 +115,7 @@ public class MobBase : MonoBehaviour, IDamageable
 
     virtual protected void Attack() 
     {
-        target.GetComponent<MobBase>().damage(meleeDamage);
+        target.GetComponent<IDamageable>().damage(meleeDamage);
     }
 
     public int Health

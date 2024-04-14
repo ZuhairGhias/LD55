@@ -8,10 +8,8 @@ public class InventorySlot
 {
 
     public InventoryItem InventoryItem;
-    [SerializeField]
-    private int count;
-    [SerializeField]
-    private int capacity;
+    public int count;
+    public int capacity;
 
     // Only add if not at capacity. Return false if already at capacity. True if successfully added.
     public bool Add(int i = 1)

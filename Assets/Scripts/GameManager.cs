@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         PlayerCheckpoint.CheckpointReached += OnCheckpointReached;
         WaveSpawner.WaveDefeated += OnWaveDefeated;
         SceneManager.sceneLoaded += SceneLoaded;
+        StartGameLoop();
     }
 
     private void SceneLoaded(Scene scene, LoadSceneMode mode)
@@ -130,18 +131,28 @@ public class GameManager : MonoBehaviour
     private void StartGameLoop()
     {
         StartCoroutine(GameLoop());
+        SceneManager.LoadScene(0);
+        isSceneLoaded = false;
     }
 
     private IEnumerator GameLoop()
     {
-        yield return FirstLevel();
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 0:
+                yield return FirstLevel();
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
         Debug.Log("You Won!");
     }
 
     private IEnumerator FirstLevel()
     {
-        SceneManager.LoadScene(0);
-        isSceneLoaded = false;
+        
         yield return WaitForSceneToLoad();
 
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);

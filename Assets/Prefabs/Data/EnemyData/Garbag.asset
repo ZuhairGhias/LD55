@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Garbag
   enemyType: 0
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
   enemyDescription: 

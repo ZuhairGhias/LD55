@@ -1,0 +1,15 @@
+#HealthBar {
+	position: absolute;
+	height: auto;
+	width: auto;
+	top: 10px;
+	left: 10px;
+}
+
+#HotBar {
+	position: absolute;
+	height: auto;
+	width: auto;
+	top: 10px;
+	right: 10px;
+}

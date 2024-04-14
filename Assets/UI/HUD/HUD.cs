@@ -44,10 +44,10 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthBar.updateHealth(health);
+        healthBar.UpdateHealth(health);
         for (int i = 0; i < slots.Count; i++)
         {
-            hotBar.updateCount(i, slots[i].count);
+            hotBar.UpdateCount(i, slots[i].count);
         }
     }
 

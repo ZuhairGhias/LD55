@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private float attackTimer;
 
+    public static Action<float> PlayerDamage;
     public static Action PlayerDeath;
 
     protected int _health;
@@ -126,6 +127,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         Health -= dmg;
         if (Health <= 0) Die();
         Debug.Log(Health);
+        PlayerDamage?.Invoke( (float)Health / (float)maxHealth );
     }
 
     void Die()

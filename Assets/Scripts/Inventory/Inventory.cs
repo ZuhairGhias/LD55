@@ -16,6 +16,8 @@ public class Inventory : MonoBehaviour
     public Dictionary<ItemClass, int> stagedItems;
     private const int stagedItemLimit = 3;
 
+    public static Action<ItemClass, int> InventoryUpdate;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +85,7 @@ public class Inventory : MonoBehaviour
             {
                 if (slot.InventoryItem.Class == item)
                 {
+                    InventoryUpdate?.Invoke(slot.InventoryItem.Class,1);
                     return slot.Add(times);
                 }
             }
@@ -103,6 +106,7 @@ public class Inventory : MonoBehaviour
             {
                 if (slot.InventoryItem.Class == item)
                 {
+                    InventoryUpdate?.Invoke(slot.InventoryItem.Class, -1);
                     return slot.Use();
                 }
             }

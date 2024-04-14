@@ -65,11 +65,11 @@ MonoBehaviour:
   health: 5
   slots:
   - InventoryItem: {fileID: 11400000, guid: e6e5ae8f7142f1341a61fcc7ef91456c, type: 2}
-    count: 10
+    count: 0
     capacity: 30
   - InventoryItem: {fileID: 11400000, guid: 204b64d8b568aea4687ecf47758fcc2b, type: 2}
-    count: 20
+    count: 0
     capacity: 30
   - InventoryItem: {fileID: 11400000, guid: 47878100f0baab44f848bb141cb29b37, type: 2}
-    count: 30
+    count: 0
     capacity: 30

@@ -250,7 +250,7 @@ MonoBehaviour:
   moveSpeedY: 8
   attackDuration: 0.3
   attackHitbox: {fileID: 7142736630659366319}
-  maxHealth: 100
+  maxHealth: 20
   _currentState: 0
 --- !u!114 &-1715425213092570804
 MonoBehaviour:
@@ -266,13 +266,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots:
   - InventoryItem: {fileID: 11400000, guid: 47878100f0baab44f848bb141cb29b37, type: 2}
-    count: 30
+    count: 0
     capacity: 30
   - InventoryItem: {fileID: 11400000, guid: e6e5ae8f7142f1341a61fcc7ef91456c, type: 2}
-    count: 30
+    count: 0
     capacity: 30
   - InventoryItem: {fileID: 11400000, guid: 204b64d8b568aea4687ecf47758fcc2b, type: 2}
-    count: 30
+    count: 0
     capacity: 30
 --- !u!50 &8063186855762026668
 Rigidbody2D:

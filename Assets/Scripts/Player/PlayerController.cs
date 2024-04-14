@@ -9,13 +9,16 @@ using static PlayerController;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] public float moveSpeed = 10f;
+    [SerializeField] public float moveSpeedX = 10f;
+    [SerializeField] public float moveSpeedY = 2f;
 
     private Rigidbody2D rb;
 
     public static Action<PlayerState> OnPlayerStateChanged;
 
     private PlayerSummoner summoner;
+
+    private SpriteRenderer sr;
 
     [SerializeField]
     public PlayerState _currentState = PlayerState.READY;
@@ -39,8 +42,10 @@ public class PlayerController : MonoBehaviour
     {
         if(_currentState == PlayerState.READY)
         {
-            
-            rb.MovePosition(rb.position + ( vector2 * Time.deltaTime * moveSpeed));
+
+            sr.flipX = vector2.x < 0 ? true : vector2.x > 0 ? false : sr.flipX;
+
+            rb.MovePosition(rb.position + ( vector2 * new Vector2(moveSpeedX, moveSpeedY) * Time.deltaTime));
         }
     }
 
@@ -51,6 +56,8 @@ public class PlayerController : MonoBehaviour
         DebugUtils.HandleErrorIfNullGetComponent(rb, this);
         summoner = GetComponent<PlayerSummoner>();
         DebugUtils.HandleErrorIfNullGetComponent(summoner, this);
+        sr = GetComponent<SpriteRenderer>();
+        DebugUtils.HandleErrorIfNullGetComponent(sr, this);
     }
 
     public void Stage(ItemClass item)

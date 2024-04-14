@@ -30,7 +30,6 @@ public class PlayerInputHandler : MonoBehaviour
         float x = Input.GetAxis(HORIZONTAL);
         float y = Input.GetAxis(VERTICAL);
         Vector2 movement = new(x, y);
-        movement.Normalize();
 
         controller.Move(movement);
 

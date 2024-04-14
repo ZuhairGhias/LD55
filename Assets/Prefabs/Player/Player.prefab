@@ -116,11 +116,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1060885751
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: d0ab3f1572e823243a7c6dfcb80cdffa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.101960786}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -208,8 +208,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1060885751
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: caa6f59c54587844aac82561da42095a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -266,14 +266,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots:
   - InventoryItem: {fileID: 11400000, guid: 47878100f0baab44f848bb141cb29b37, type: 2}
-    count: 0
-    capacity: 30
+    count: 3
+    capacity: 10
   - InventoryItem: {fileID: 11400000, guid: e6e5ae8f7142f1341a61fcc7ef91456c, type: 2}
-    count: 0
-    capacity: 30
+    count: 3
+    capacity: 10
   - InventoryItem: {fileID: 11400000, guid: 204b64d8b568aea4687ecf47758fcc2b, type: 2}
-    count: 0
-    capacity: 30
+    count: 3
+    capacity: 10
 --- !u!50 &8063186855762026668
 Rigidbody2D:
   serializedVersion: 4

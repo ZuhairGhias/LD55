@@ -12,6 +12,11 @@ public class HUD : MonoBehaviour
     private HealthBar healthBar;
     private HotBar hotBar;
 
+    private void Awake()
+    {
+        PlayerController.PlayerDamage += OnPlayerDamage;
+        Inventory.InventoryUpdate += OnInventoryUpdate;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +41,6 @@ public class HUD : MonoBehaviour
         hotBar = new HotBar(sprites, capacities);
         hotBar.name = "HotBar";
         hud.Add(hotBar);
-
-        PlayerController.PlayerDamage += OnPlayerDamage;
-        Inventory.InventoryUpdate += OnInventoryUpdate;
     }
 
     // Update is called once per frame
@@ -57,14 +59,20 @@ public class HUD : MonoBehaviour
         health = healthRatio;
     }
 
-    void OnInventoryUpdate(InventoryItem.ItemClass itemClass, int amountChanged)
+    void OnInventoryUpdate(InventoryItem.ItemClass itemClass, int currentAmount)
     {
         foreach (InventorySlot Slot in slots)
         {
             if ( Slot.InventoryItem.Class == itemClass )
             {
-                Slot.count += amountChanged;
+                Slot.count = currentAmount;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.PlayerDamage -= OnPlayerDamage;
+        Inventory.InventoryUpdate -= OnInventoryUpdate;
     }
 }

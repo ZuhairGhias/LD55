@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpawnDistance: 10
-  verticalSpawnRange: 4
+  verticalSpawnRange: 2
   enemyQueue: []

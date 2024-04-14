@@ -24,6 +24,12 @@ public class Inventory : MonoBehaviour
         DebugUtils.HandleErrorIfNullGetComponent(slots, this);
 
         stagedItems = new Dictionary<ItemClass, int>();
+
+        //Initialize listeners based on default state
+        foreach (InventorySlot slot in slots)
+        {
+                InventoryUpdate?.Invoke(slot.InventoryItem.Class, slot.count); 
+        }
     }
 
     // Adds an item to the staging area if possible, taking it from the inventory.
@@ -85,8 +91,15 @@ public class Inventory : MonoBehaviour
             {
                 if (slot.InventoryItem.Class == item)
                 {
-                    InventoryUpdate?.Invoke(slot.InventoryItem.Class,1);
-                    return slot.Add(times);
+                    if (slot.Add(times))
+                    {
+                        InventoryUpdate?.Invoke(slot.InventoryItem.Class, slot.count);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
         }
@@ -106,8 +119,15 @@ public class Inventory : MonoBehaviour
             {
                 if (slot.InventoryItem.Class == item)
                 {
-                    InventoryUpdate?.Invoke(slot.InventoryItem.Class, -1);
-                    return slot.Use();
+                    if(slot.Use())
+                    {
+                        InventoryUpdate?.Invoke(slot.InventoryItem.Class, slot.count);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
         }

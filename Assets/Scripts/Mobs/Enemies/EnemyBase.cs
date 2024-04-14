@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyBase : MobBase
 {
@@ -32,7 +33,7 @@ public class EnemyBase : MobBase
         return closestOp;
     }
 
-    protected override void Attack()
+    protected override void DealAttack()
     {
         /*
         Vector3 directionOfTarget = target.transform.position - gameObject.transform.position;
@@ -49,7 +50,16 @@ public class EnemyBase : MobBase
         }
         */
 
-        base.Attack();
+        base.DealAttack();
+    }
+
+    protected override void Move(GameObject target)
+    {
+        base.Move(target);
+
+        // The enemy sprites are reversed
+        _spriteRenderer.flipX = _animator.GetBool("FacingRight");
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

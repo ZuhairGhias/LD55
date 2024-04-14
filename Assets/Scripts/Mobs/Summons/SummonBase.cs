@@ -16,7 +16,7 @@ public class SummonBase : MobBase
         return findClosestOpponentInTargetRange();
     }
 
-    protected override void Attack()
+    protected override void DealAttack()
     {
         /*
         Vector3 directionOfTarget = target.transform.position - gameObject.transform.position;
@@ -33,6 +33,6 @@ public class SummonBase : MobBase
         }
         */
 
-        base.Attack();
+        base.DealAttack();
     }
 }

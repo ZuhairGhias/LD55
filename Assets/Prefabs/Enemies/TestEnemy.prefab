@@ -106,6 +106,11 @@ MonoBehaviour:
   attackDuration: 3
   maxHealth: 2
   meleeDamage: 1
+  drops:
+  - {fileID: 6562421301327330515, guid: e8d9f043050b9e472979c77963f3c066, type: 3}
+  - {fileID: 1809039289764753432, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
+  - {fileID: 1218131760427048982, guid: 24a85b0f7c5eccc25a3430c80cf1c11c, type: 3}
+  dropRate: 0.5
 --- !u!50 &7295128551556223745
 Rigidbody2D:
   serializedVersion: 4

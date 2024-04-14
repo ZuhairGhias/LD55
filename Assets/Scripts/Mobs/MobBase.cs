@@ -20,6 +20,10 @@ public class MobBase : MonoBehaviour, IDamageable
     protected Animator _animator;
     protected SpriteRenderer _spriteRenderer;
 
+    [SerializeField] protected List<Collectible> drops;
+    [Range(0.1f, 1f)]
+    [SerializeField] protected float dropRate = 0.5f;
+
     protected virtual void Start()
     {
 
@@ -170,6 +174,14 @@ public class MobBase : MonoBehaviour, IDamageable
 
     void die()
     {
+        foreach(Collectible drop in drops)
+        {
+            if(Random.Range(0, 1) < dropRate)
+            {
+                Instantiate(drop, transform.position, Quaternion.identity);
+            }
+        }
+        // Death Particle Effect
         Destroy(gameObject);
     }
 

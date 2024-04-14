@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
     {
         cameraMovement.cameraState = CameraMovement.CameraStates.Stop;
 
-        WaveSpawner.StartWave(waveData, new(cameraMovement.transform.position.x, cameraMovement.transform.position.y));
+        WaveSpawner.StartWave(waveData, new(cameraMovement.transform.position.x, 0));
         waveDefeated = false;
         yield return WaitForWaveToBeDefeated();
 

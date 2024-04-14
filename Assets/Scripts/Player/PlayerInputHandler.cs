@@ -23,6 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
     public const string ITEM2 = "Item2";
     public const string ITEM3 = "Item3";
     public const string ITEM4 = "Item4";
+    public const string ATTACK = "Attack";
 
     // Update is called once per frame
     void Update()
@@ -44,6 +45,11 @@ public class PlayerInputHandler : MonoBehaviour
         else if(Input.GetButtonDown(ITEM3))
         {
             controller.Stage(InventoryItem.ItemClass.FRUIT);
+        }
+
+        if (Input.GetButtonDown(ATTACK))
+        {
+            controller.Attack(x);
         }
     }
 }

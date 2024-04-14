@@ -42,4 +42,13 @@ public class EnemyBase : MobBase
 
         base.Attack();
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {        
+        if ( other.tag == "Hitbox" )
+        {
+            damage(1);
+            //Debug.Log("Bonked!");
+        }
+    }
 }

@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf94ab423c038b498efc7dfddba1234, type: 3}
-  m_Name: Dough-dough
+  m_Script: {fileID: 11500000, guid: 8cb6ddd54060a8043bd6d3f9f76a65f8, type: 3}
+  m_Name: Garbag
   m_EditorClassIdentifier: 
-  ItemAmounts:
-  - item: 0
-    amount: 3
-  Summon: {fileID: 2233039428950169528, guid: 68fcadda7901b664da9cf5da1ac61594, type: 3}
+  enemyName: Garbag
+  enemyType: 0
+  enemyPrefab: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+  enemyDescription: 

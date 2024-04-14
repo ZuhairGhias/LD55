@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        GameManager.StartGame();
     }
 
     public void AdjustVolume(float volume)

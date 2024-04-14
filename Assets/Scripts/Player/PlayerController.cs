@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private float attackTimer;
 
+    public static Action PlayerDeath;
+
     protected int _health;
 
     [SerializeField]
@@ -91,10 +93,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         ATTACK
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Player collided with "+other);
-    }
-
     public void Attack(float direction)
     {
         if (_currentState == PlayerState.READY)
@@ -126,12 +124,14 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void damage(int dmg)
     {
         Health -= dmg;
-        if (Health <= 0) die();
+        if (Health <= 0) Die();
         Debug.Log(Health);
     }
 
-    void die()
+    void Die()
     {
-        Destroy(gameObject);
+        // Not Yet!
+        //Destroy(gameObject);
+        PlayerDeath?.Invoke();
     }
 }

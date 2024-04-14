@@ -17,4 +17,4 @@ MonoBehaviour:
     amount: 2
   - item: 1
     amount: 1
-  Summon: {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+  Summon: {fileID: 6136180945217128878, guid: 433bf77231b1173419e1a480e9e4100e, type: 3}

@@ -83,7 +83,7 @@ public class Inventory : MonoBehaviour
             {
                 if (slot.InventoryItem.Class == item)
                 {
-                    return slot.Add();
+                    return slot.Add(times);
                 }
             }
         }

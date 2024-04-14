@@ -54,13 +54,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
             rb.MovePosition(rb.position + ( vector2 * new Vector2(moveSpeedX, moveSpeedY) * Time.deltaTime));
         }
-        else if (_currentState == PlayerState.ATTACK)
-        {
-            attackTimer += Time.deltaTime;
-
-            if (attackTimer > 0.1f) attackHitbox.SetActive(false);
-            if (attackTimer > attackDuration) CurrentState = PlayerState.READY;
-        }
     }
 
     // Start is called before the first frame update
@@ -72,6 +65,18 @@ public class PlayerController : MonoBehaviour, IDamageable
         DebugUtils.HandleErrorIfNullGetComponent(summoner, this);
         sr = GetComponent<SpriteRenderer>();
         DebugUtils.HandleErrorIfNullGetComponent(sr, this);
+        Health = maxHealth;
+    }
+
+    void Update()
+    {
+        if (_currentState == PlayerState.ATTACK)
+        {
+            attackTimer += Time.deltaTime;
+
+            if (attackTimer > 0.1f) attackHitbox.SetActive(false);
+            if (attackTimer > attackDuration) CurrentState = PlayerState.READY;
+        }
     }
 
     public void Stage(ItemClass item)
@@ -122,6 +127,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         Health -= dmg;
         if (Health <= 0) die();
+        Debug.Log(Health);
     }
 
     void die()

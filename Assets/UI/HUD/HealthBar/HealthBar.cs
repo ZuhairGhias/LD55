@@ -10,7 +10,7 @@ public class HealthBar : VisualElement
 
     private int maxHealth;
     private float health;
-    private const int SIZE = 50;
+    private const int SIZE = 75;
     private VisualElement root;
     private List<Heart> hearts;
 

@@ -8,7 +8,7 @@ public class HotBar : VisualElement
     [UnityEngine.Scripting.Preserve]
     public new class UxmlFactory : UxmlFactory<HotBar> { }
 
-    private const int SIZE = 50;
+    private const int SIZE = 75;
     private VisualElement root;
     private List<CollectibleCell> cells;
 

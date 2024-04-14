@@ -215,6 +215,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1244870176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244870177}
+  - component: {fileID: 1244870178}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244870177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244870176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.9010835, y: 0.48071063, z: 0.02049436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244870178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244870176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 8b1b47b42fc254f46a43c416ee784352, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: c384bee60a6da0c4781e1bcfc0e973ee, type: 3}
+  m_SortingOrder: 0
 --- !u!1001 &8655832603294048017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,9 +311,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1276383638810969181, guid: f7cd674f6b40ca4438f2c438c563fe0c, type: 3}
+      propertyPath: sourceAsset
+      value: 
+      objectReference: {fileID: 9197481963319205126, guid: c3d1c43ffeee5ab47afed65a6a7c3999, type: 3}
+    - target: {fileID: 1276383638810969181, guid: f7cd674f6b40ca4438f2c438c563fe0c, type: 3}
+      propertyPath: m_PanelSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fd83d64ce2c37d439d9b5ec6cc5fd77, type: 2}
+    - target: {fileID: 4360353655207296110, guid: f7cd674f6b40ca4438f2c438c563fe0c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360353655207296110, guid: f7cd674f6b40ca4438f2c438c563fe0c, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9094964424749842396, guid: f7cd674f6b40ca4438f2c438c563fe0c, type: 3}
       propertyPath: m_Name
-      value: UI
+      value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094964424749842396, guid: f7cd674f6b40ca4438f2c438c563fe0c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -278,3 +346,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 253646244}
   - {fileID: 8655832603294048017}
+  - {fileID: 1244870177}

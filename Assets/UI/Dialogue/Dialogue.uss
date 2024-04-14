@@ -1,0 +1,42 @@
+#Speaker {
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	bottom: 0px;
+	right: 5%;
+	background-image: url("../../Sprites/Portrait/PlayerPortrait.png");
+	-unity-background-scale-mode: scale-to-fit;
+}
+
+#DialogueBox {
+	position: absolute;
+	height: 25%;
+	width: 45%;
+	bottom: 0px;
+	left: 20%;
+	background-image: url("../../Sprites/UI/TextboxUI.png");
+}
+
+#TextContainer {
+	position: releative;
+	height: 65%;
+	width: 80%;
+	top: 20%;
+	left: 10%;
+}
+
+#SpeakerName {
+	position: relative;
+	margin: 0px;
+	font-size: 28px;
+	color: #000000;
+}
+
+#DialogueText {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	font-size: 20px;
+	color: #000000;
+	white-space: normal;
+}

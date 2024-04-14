@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e60a44c7d65c32b45971c848deeb0251, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,8 +104,6 @@ MonoBehaviour:
   attackRange: 2
   attackDuration: 3
   maxHealth: 2
-  meleeRadius: 1
-  meleeDistance: 2
   meleeDamage: 1
 --- !u!50 &7295128551556223745
 Rigidbody2D:
@@ -166,6 +164,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.75}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25

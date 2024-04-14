@@ -59,7 +59,7 @@ public class WaveSpawner : MonoBehaviour
     public void OnEnemyDeath()
     {
         enemyCount--;
-        if(AreThereAnyEnemiesLeft())
+        if(!AreThereAnyEnemiesLeft())
         {
             WaveDefeated?.Invoke();
         }

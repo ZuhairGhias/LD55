@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce311fc110323f84294d77c44bd222c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpawnDistance: 14
-  verticalSpawnRange: 6
+  horizontalSpawnDistance: 10
+  verticalSpawnRange: 4
   enemyQueue: []

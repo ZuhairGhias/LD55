@@ -36,6 +36,9 @@ public class HUD : MonoBehaviour
         hotBar = new HotBar(sprites, capacities);
         hotBar.name = "HotBar";
         hud.Add(hotBar);
+
+        PlayerController.PlayerDamage += OnPlayerDamage;
+        Inventory.InventoryUpdate += OnInventoryUpdate;
     }
 
     // Update is called once per frame
@@ -45,6 +48,23 @@ public class HUD : MonoBehaviour
         for (int i = 0; i < slots.Count; i++)
         {
             hotBar.updateCount(i, slots[i].count);
+        }
+    }
+
+    void OnPlayerDamage(float healthRatio)
+    {
+        healthRatio *= maxHealth;
+        health = healthRatio;
+    }
+
+    void OnInventoryUpdate(InventoryItem.ItemClass itemClass, int amountChanged)
+    {
+        foreach (InventorySlot Slot in slots)
+        {
+            if ( Slot.InventoryItem.Class == itemClass )
+            {
+                Slot.count += amountChanged;
+            }
         }
     }
 }

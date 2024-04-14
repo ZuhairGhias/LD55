@@ -18,7 +18,7 @@
 }
 
 #TextContainer {
-	position: releative;
+	position: relative;
 	height: 65%;
 	width: 80%;
 	top: 20%;

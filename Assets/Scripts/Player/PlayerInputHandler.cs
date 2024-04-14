@@ -21,6 +21,8 @@ public class PlayerInputHandler : MonoBehaviour
     public const string VERTICAL = "Vertical";
     public const string ITEM1 = "Item1";
     public const string ITEM2 = "Item2";
+    public const string ITEM3 = "Item3";
+    public const string ITEM4 = "Item4";
 
     // Update is called once per frame
     void Update()
@@ -39,6 +41,10 @@ public class PlayerInputHandler : MonoBehaviour
         else if(Input.GetButtonDown(ITEM2))
         {
             controller.Stage(InventoryItem.ItemClass.CANDY);
+        }
+        else if(Input.GetButtonDown(ITEM3))
+        {
+            controller.Stage(InventoryItem.ItemClass.FRUIT);
         }
     }
 }

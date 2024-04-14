@@ -1,0 +1,36 @@
+#HeartFillMask {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-image: url("Apple-Fill.svg");
+}
+
+#HeartBackground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #FFBBBB;
+}
+
+#HeartForeground {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background-color: #BB4444;
+}
+
+#HeartOutlineMask {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-image: url("Apple-Outline.svg");
+}
+
+#HeartBorder {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #222222;
+}

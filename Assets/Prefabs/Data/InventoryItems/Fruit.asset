@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1028f527aa77197478c8af5103c38f21, type: 3}
-  m_Name: CrustyBreadData
+  m_Name: Fruit
   m_EditorClassIdentifier: 
-  ItemName: Crusty Bread
-  Class: 0
-  ItemSprite: {fileID: 0}
+  ItemName: Fruit
+  Class: 2
+  ItemSprite: {fileID: 21300000, guid: 7a277a7425bb72848b546ba00eeda431, type: 3}

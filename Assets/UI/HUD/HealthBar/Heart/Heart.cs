@@ -18,13 +18,13 @@ public class Heart : VisualElement
         VisualElement heart = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/HUD/HealthBar/Heart/Heart.uxml").Instantiate();
         foreground = heart.Query("HeartForeground").First();
         foreground.style.width = Length.Percent(0f);
-        setPercentFill(percentFill);
+        SetPercentFill(percentFill);
         heart.style.height = size;
         heart.style.width = size;
         hierarchy.Add(heart);
     }
 
-    public void setPercentFill(float percentFill)
+    public void SetPercentFill(float percentFill)
     {
         foreground.style.width = Length.Percent(percentFill);
     }

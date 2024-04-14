@@ -25,10 +25,10 @@ public class CollectibleCell : VisualElement
         icon = cell.Query("Icon").First();
         icon.style.backgroundImage = new StyleBackground(item);
         countLabel = (Label)cell.Query("Count").First();
-        updateCount(count);
+        UpdateCount(count);
     }
 
-    public void updateCount(int count)
+    public void UpdateCount(int count)
     {
         this.count = count;
         countLabel.text = count.ToString();

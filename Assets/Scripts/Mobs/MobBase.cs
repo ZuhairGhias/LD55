@@ -17,9 +17,22 @@ public class MobBase : MonoBehaviour, IDamageable
     protected GameObject[] opponents;
     protected float attackTimer;
     protected int _health;
+    protected Animator _animator;
+    protected SpriteRenderer _spriteRenderer;
+
+    [SerializeField] protected List<Collectible> drops;
+    [Range(0.1f, 1f)]
+    [SerializeField] protected float dropRate = 0.5f;
 
     protected virtual void Start()
     {
+
+        _animator = GetComponent<Animator>();
+        DebugUtils.HandleErrorIfNullGetComponent(_animator, this);
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        DebugUtils.HandleErrorIfNullGetComponent(_animator, this);
+
+
         Health = maxHealth;
 
         SET_STATE(MobState.CHASE);
@@ -61,10 +74,15 @@ public class MobBase : MonoBehaviour, IDamageable
 
     private void CHASE_UPDATE()
     {
-        if (target == null || !target.activeSelf) target = chooseTarget();
+        if (target == null || !target.activeSelf)
+        {
+            target = chooseTarget();
+            _animator.SetBool("Moving", false);
+        }
         else
         {
             Move(target);
+            _animator.SetBool("Moving", true);
 
             if (Vector3.Distance(transform.position, target.transform.position) <= attackRange) SET_STATE(MobState.ATTACK);
         }
@@ -74,7 +92,7 @@ public class MobBase : MonoBehaviour, IDamageable
     {
         attackTimer = attackDuration;
         if (target == null || !target.activeSelf) target = chooseTarget();
-        Attack();
+        StartAttackAnim();
     }
 
     private void ATTACK_UPDATE()
@@ -110,12 +128,27 @@ public class MobBase : MonoBehaviour, IDamageable
 
     virtual protected void Move(GameObject target)
     {
-        if (target != null) transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        if (target != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+            _animator.SetBool("FacingRight", transform.position.x < target.transform.position.x);
+            _spriteRenderer.flipX = !_animator.GetBool("FacingRight");
+        }
+
     }
 
-    virtual protected void Attack() 
+    virtual protected void StartAttackAnim() 
     {
-        target.GetComponent<IDamageable>().damage(meleeDamage);
+        _animator.SetTrigger("Attack");
+    }
+
+    virtual protected void DealAttack()
+    {
+        // Could have been destroyed
+        if (target != null)
+        {
+            target.GetComponent<IDamageable>()?.damage(meleeDamage);
+        }
     }
 
     public int Health
@@ -134,12 +167,21 @@ public class MobBase : MonoBehaviour, IDamageable
     public void damage(int dmg)
     {
         Health -= dmg;
+        _animator.SetTrigger("Damaged");
         if (Health <= 0) die();
-        //Debug.Log(gameObject.name + " has been struck!");
+
     }
 
     void die()
     {
+        foreach(Collectible drop in drops)
+        {
+            if(Random.Range(0, 1) < dropRate)
+            {
+                Instantiate(drop, transform.position, Quaternion.identity);
+            }
+        }
+        // Death Particle Effect
         Destroy(gameObject);
     }
 

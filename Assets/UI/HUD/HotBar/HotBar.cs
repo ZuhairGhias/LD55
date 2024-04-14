@@ -8,7 +8,7 @@ public class HotBar : VisualElement
     [UnityEngine.Scripting.Preserve]
     public new class UxmlFactory : UxmlFactory<HotBar> { }
 
-    private const int SIZE = 50;
+    private const int SIZE = 75;
     private VisualElement root;
     private List<CollectibleCell> cells;
 
@@ -37,12 +37,12 @@ public class HotBar : VisualElement
         }
     }
 
-    public void updateCount(int index, int count)
+    public void UpdateCount(int index, int count)
     {
-        cells[index].updateCount(count);
+        cells[index].UpdateCount(count);
     }
 
-    public void addNewSlot(InventorySlot slot)
+    public void AddNewSlot(InventorySlot slot)
     {
         cells.Add(new CollectibleCell(slot.InventoryItem.ItemSprite, slot.capacity, SIZE));
         root.Add(cells[cells.Count - 1]);

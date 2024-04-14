@@ -15,7 +15,7 @@ public class TestSummon : SummonBase
         return findClosestOpponentInTargetRange();
     }
 
-    protected override void Attack()
+    protected override void DealAttack()
     {
         // Broke: Using RayCast
         /*

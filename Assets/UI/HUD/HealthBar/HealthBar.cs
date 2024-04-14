@@ -10,7 +10,7 @@ public class HealthBar : VisualElement
 
     private int maxHealth;
     private float health;
-    private const int SIZE = 50;
+    private const int SIZE = 75;
     private VisualElement root;
     private List<Heart> hearts;
 
@@ -32,25 +32,25 @@ public class HealthBar : VisualElement
             hearts.Add(new Heart(0, SIZE));
             root.Add(hearts[i]);
         }
-        updateHealth(health);
+        UpdateHealth(health);
     }
 
-    public void updateHealth(float health)
+    public void UpdateHealth(float health)
     {
         this.health = health;
         for (int i = 0; i < maxHealth; i++)
         {
             if (i > health) // Empty Hearts
             {
-                hearts[i].setPercentFill(0f);
+                hearts[i].SetPercentFill(0f);
             }
             else if (i + 1 > health) // Partially Filled Hearts
             {
-                hearts[i].setPercentFill((health % 1) * 100);
+                hearts[i].SetPercentFill((health % 1) * 100);
             }
             else // Filled Hearts
             {
-                hearts[i].setPercentFill(100f);
+                hearts[i].SetPercentFill(100f);
             }
         }
     }

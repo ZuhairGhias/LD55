@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private PlayerSummoner summoner;
 
+    private Animator animator;
     private SpriteRenderer sr;
 
     private float attackTimer;
@@ -57,7 +58,17 @@ public class PlayerController : MonoBehaviour, IDamageable
             sr.flipX = vector2.x < 0 ? true : vector2.x > 0 ? false : sr.flipX;
 
             gameObject.transform.position += (Vector3)(vector2 * new Vector2(moveSpeedX, moveSpeedY) * Time.deltaTime);
+
+            animator.SetBool("Moving", vector2.magnitude > 0.1);
+            animator.SetFloat("MoveSpeed", Mathf.Clamp01(vector2.magnitude));
         }
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
+
+
+
     }
 
     // Start is called before the first frame update
@@ -67,6 +78,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         DebugUtils.HandleErrorIfNullGetComponent(rb, this);
         summoner = GetComponent<PlayerSummoner>();
         DebugUtils.HandleErrorIfNullGetComponent(summoner, this);
+        animator = GetComponent<Animator>();
+        DebugUtils.HandleErrorIfNullGetComponent(animator, this);
         sr = GetComponent<SpriteRenderer>();
         DebugUtils.HandleErrorIfNullGetComponent(sr, this);
         Health = maxHealth;
@@ -81,6 +94,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (attackTimer > 0.1f) attackHitbox.SetActive(false);
             if (attackTimer > attackDuration) CurrentState = PlayerState.READY;
         }
+
+
     }
 
     public void Stage(ItemClass item)
@@ -99,6 +114,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (_currentState == PlayerState.READY)
         {
+            animator.SetTrigger("Attack");
             CurrentState = PlayerState.ATTACK;
             attackTimer = 0f;
 

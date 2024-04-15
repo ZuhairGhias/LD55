@@ -13,6 +13,8 @@ public class Inventory : MonoBehaviour
 
 
     [SerializeField] public List<InventorySlot> slots;
+    [SerializeField] private GameObject[] stagedObjects;
+    [SerializeField] private InventoryItem[] itemData;
     public Dictionary<ItemClass, int> stagedItems;
     private const int stagedItemLimit = 3;
 
@@ -38,6 +40,9 @@ public class Inventory : MonoBehaviour
     {
         if(!IsStageFull() && TryUseItem(item))
         {
+            stagedObjects[CountStagedItems()].GetComponent<SpriteRenderer>().sprite = ItemClassToSprite(item);
+            stagedObjects[CountStagedItems()].GetComponent<Animator>().Play("Base Layer.Stage");
+
             if(!stagedItems.ContainsKey(item))
             {
                 stagedItems.Add(item, 0);
@@ -50,33 +55,58 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    private Sprite ItemClassToSprite(ItemClass item)
+    {
+        foreach (InventoryItem data in itemData)
+        {
+            if (data.Class == item)
+            {
+                return data.ItemSprite;
+            }
+        }
+        return null;
+    }
+
     // Adds an item to the staging area if possible, taking it from the inventory
     public void ReturnStagedItems()
     {
+        for (int i = 0; i < CountStagedItems(); i++)
+        {
+            stagedObjects[i].GetComponent<Animator>().Play("Base Layer.Fail");
+        }
+
         foreach(ItemClass item in stagedItems.Keys)
         {
             //Try adding items back one by one
             TryAddItem(item, stagedItems[item]);
         }
-        stagedItems.Clear();
 
+        stagedItems.Clear();
     }
 
     public void ConsumeStagedItems()
     {
         stagedItems.Clear();
 
+        foreach (GameObject obj in stagedObjects)
+        {
+            obj.GetComponent<Animator>().Play("Base Layer.Success");
+        }
     }
 
     public bool IsStageFull()
     {
+        return CountStagedItems() >= stagedItemLimit;
+    }
+
+    public int CountStagedItems()
+    {
         int count = 0;
-        foreach(int i in stagedItems.Values)
+        foreach (int i in stagedItems.Values)
         {
             count += i;
         }
-
-        return count >= stagedItemLimit;
+        return count;
     }
 
     /// <summary>

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5207c407232dfd47ba621e0173a330e, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  speakers:
+  - {fileID: 11400000, guid: 943cc78b4789c4f40aa3c21d29b8c68c, type: 2}
+  - {fileID: 11400000, guid: 95059aa89b7ff214a927262af1254d96, type: 2}
+  lines:
+  - Drats! This bakery was almost mine!
+  - Not today, Macaroon. Your half-baked schemes aren't welcome here.
+  - 'Take your crummy recipes and scram. '
+  speakerIndexes: 000000000100000001000000

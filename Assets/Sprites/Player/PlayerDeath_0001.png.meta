@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: a5539c065174b7a4d82f7f823d8d8f53
 =======
 guid: 312064e2ee10cb24ba6a5a373e10afd5
 >>>>>>> 28f68d3 (Waves and Balance)
+=======
+guid: 312064e2ee10cb24ba6a5a373e10afd5
+=======
+guid: a5539c065174b7a4d82f7f823d8d8f53
+>>>>>>> b08da44 (Player Death)
+>>>>>>> 7aee616 (Merge)
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -51,10 +58,17 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   alignment: 7
 =======
   alignment: 0
 >>>>>>> 28f68d3 (Waves and Balance)
+=======
+  alignment: 0
+=======
+  alignment: 7
+>>>>>>> b08da44 (Player Death)
+>>>>>>> 7aee616 (Merge)
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}

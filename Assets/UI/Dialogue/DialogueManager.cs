@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,10 +13,30 @@ public class DialogueManager : MonoBehaviour
     private AudioSource audioSource;
     private Dialogue dialogue;
 
+    private static DialogueManager instance;
+
+    public static Action DialogueFinished;
+
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this);
         audioSource = GetComponent<AudioSource>();
+        Debug.Log("TODO: Update audio source to use audio manager");
         root = GetComponent<UIDocument>().rootVisualElement;
         root.style.position = Position.Absolute;
         root.style.top = 0;
@@ -33,7 +55,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void PlayDialogue(DialogueScene scene)
+    public static void PlayDialogue(DialogueScene scene)
+    {
+        PlayDialogue(scene);
+    }
+    private void playDialogue(DialogueScene scene)
     {
         this.scene = scene;
         this.lineIndex = -1;

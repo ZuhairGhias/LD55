@@ -15,7 +15,17 @@ public class GameManager : MonoBehaviour
     private bool checkPointReached = false;
     private bool waveDefeated = false;
     private bool isSceneLoaded = false;
+    private bool isDialogueFinished = false;
+
+    #region WaveData
     public WaveData waveData;
+    #endregion
+
+    #region dialogue
+    public DialogueScene dialogueOne;
+    #endregion
+
+    #region Monobehavior
 
     private void Awake()
     {
@@ -29,6 +39,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        PlayerCheckpoint.CheckpointReached += OnCheckpointReached;
+        WaveSpawner.WaveDefeated += OnWaveDefeated;
+        SceneManager.sceneLoaded += SceneLoaded;
+        DialogueManager.DialogueFinished += OnDialogueFinished;
     }
 
     // Start is called before the first frame update
@@ -36,16 +51,8 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         DebugUtils.HandleErrorIfNullGetComponent(checkPoint, this);
-        PlayerCheckpoint.CheckpointReached += OnCheckpointReached;
-        WaveSpawner.WaveDefeated += OnWaveDefeated;
-        SceneManager.sceneLoaded += SceneLoaded;
+        
         StartGameLoop();
-    }
-
-    private void SceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        isSceneLoaded = true;
-        GetPlayerandCamera();
     }
 
     private void OnDestroy()
@@ -54,30 +61,14 @@ public class GameManager : MonoBehaviour
         WaveSpawner.WaveDefeated += OnWaveDefeated;
     }
 
-    private void GetPlayerandCamera()
-    {
-        player = FindObjectOfType<PlayerController>().transform;
-        DebugUtils.HandleErrorIfNullGetComponent(player, this);
-        cameraMovement = FindObjectOfType<CameraMovement>();
-        DebugUtils.HandleErrorIfNullGetComponent(cameraMovement, this);
-    }
+    #endregion
 
-    private void OnCheckpointReached()
-    {
-        checkPointReached = true;
-    }
 
-    private void OnWaveDefeated()
+    #region Scene
+    private void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        waveDefeated = true;
-    }
-
-    private IEnumerator WaitForCheckPoint()
-    {
-        while(!checkPointReached)
-        {
-            yield return null;
-        }
+        isSceneLoaded = true;
+        GetPlayerandCamera();
     }
 
     private IEnumerator WaitForSceneToLoad()
@@ -88,11 +79,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void GetPlayerandCamera()
+    {
+        player = FindObjectOfType<PlayerController>()?.transform;
+        //DebugUtils.HandleErrorIfNullGetComponent(player, this);
+        cameraMovement = FindObjectOfType<CameraMovement>();
+        //DebugUtils.HandleErrorIfNullGetComponent(cameraMovement, this);
+    }
+    #endregion
+
+    #region CHeckpoint
     private void CreateNewCheckPoint(float distance)
     {
         Instantiate(checkPoint, player.position + (Vector3.right * distance), Quaternion.identity);
         checkPointReached = false;
 
+    }
+    private IEnumerator WaitForCheckPoint()
+    {
+        while (!checkPointReached)
+        {
+            yield return null;
+        }
+    }
+
+    private void OnCheckpointReached()
+    {
+        checkPointReached = true;
     }
 
     private IEnumerator CreateAndWaitForCheckPoint(float distance)
@@ -100,19 +113,26 @@ public class GameManager : MonoBehaviour
         CreateNewCheckPoint(distance);
         yield return WaitForCheckPoint();
     }
+    #endregion
 
+    #region Fight
     private IEnumerator FightSequence(WaveData waveData)
     {
         cameraMovement.cameraState = CameraMovement.CameraStates.Stop;
-
-        WaveSpawner.StartWave(waveData, new(cameraMovement.transform.position.x, 0));
+        
         waveDefeated = false;
+        WaveSpawner.StartWave(waveData, new(cameraMovement.transform.position.x, 0));
         yield return WaitForWaveToBeDefeated();
 
         cameraMovement.cameraState = CameraMovement.CameraStates.Active;
 
 
         yield return null;
+    }
+
+    private void OnWaveDefeated()
+    {
+        waveDefeated = true;
     }
 
     private IEnumerator WaitForWaveToBeDefeated()
@@ -123,37 +143,63 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Dialogue
+    private IEnumerator DialogueSequence(DialogueScene dialogue)
+    {
+
+        yield return null;
+    }
+
+    private IEnumerator WaitForDialogueToFinish()
+    {
+        while (!isDialogueFinished)
+        {
+            yield return null;
+        }
+    }
+
+    public void OnDialogueFinished()
+    {
+        isDialogueFinished = true;
+    }
+    #endregion
+
+    /// <summary>
+    /// Called to start game statically
+    /// </summary>
     public static void StartGame()
     {
         instance.StartGameLoop();
     }
 
+    /// <summary>
+    /// Singletin game loop
+    /// </summary>
     private void StartGameLoop()
     {
         StartCoroutine(GameLoop());
-        SceneManager.LoadScene(0);
-        isSceneLoaded = false;
     }
 
     private IEnumerator GameLoop()
     {
-        switch (SceneManager.GetActiveScene().buildIndex)
+        yield return WaitForSceneToLoad();
+        switch (SceneManager.GetActiveScene().name)
         {
-            case 0:
+            case "Main Menu":
+                break;
+            case "Level1":
                 yield return FirstLevel();
                 break;
-            case 1:
-                break;
-            case 2:
+            case "":
                 break;
         }
-        Debug.Log("You Won!");
     }
 
     private IEnumerator FirstLevel()
     {
         
-        yield return WaitForSceneToLoad();
 
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
         yield return FightSequence(waveData);

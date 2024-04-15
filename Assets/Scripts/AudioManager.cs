@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
             if (clip.name == clipName)
             {
                 Instance.FXplayer.clip = clip;
-                Instance.FXplayer.Play();
+                Instance.FXplayer.PlayOneShot(clip);
                 return;
             }
         }
@@ -71,7 +71,7 @@ public class AudioManager : MonoBehaviour
     public static void PlaySoundEffect(AudioClip clip)
     {
         Instance.FXplayer.clip = clip;
-        Instance.FXplayer.Play();
+        Instance.FXplayer.PlayOneShot(clip);
     }
 
     public static void SetMusicTrack(string trackName)

@@ -15,5 +15,8 @@ public class EnemyData : ScriptableObject
 public enum EnemyType
 {
     Garbag,
-    Trashcant
+    Trashcant,
+    Mousse,
+    Depices,
+    BigMac
 }

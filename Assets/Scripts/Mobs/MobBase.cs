@@ -26,6 +26,8 @@ public class MobBase : MonoBehaviour, IDamageable
     [Range(0.1f, 1f)]
     [SerializeField] protected float dropRate = 0.5f;
 
+    protected GameObject player;
+
     protected virtual void Start()
     {
 
@@ -34,6 +36,7 @@ public class MobBase : MonoBehaviour, IDamageable
         _spriteRenderer = GetComponent<SpriteRenderer>();
         DebugUtils.HandleErrorIfNullGetComponent(_animator, this);
 
+        player = GameObject.FindGameObjectWithTag("Player");
 
         Health = maxHealth;
 
@@ -74,7 +77,7 @@ public class MobBase : MonoBehaviour, IDamageable
         target = chooseTarget();
     }
 
-    private void CHASE_UPDATE()
+    virtual protected void CHASE_UPDATE()
     {
         if (target == null || !target.activeSelf)
         {

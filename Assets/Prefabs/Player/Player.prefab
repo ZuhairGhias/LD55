@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 8652466181116128648}
   - component: {fileID: 5222856584966510926}
   - component: {fileID: 5715935142133843971}
+  - component: {fileID: 2119680526238700247}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -570,7 +571,7 @@ MonoBehaviour:
   moveSpeedX: 4
   moveSpeedY: 1
   attackDuration: 0.3
-  attackamage: 0.5
+  attackDamage: 0.5
   attackHitbox: {fileID: 7142736630659366319}
   maxHealth: 20
   _currentState: 0
@@ -694,3 +695,24 @@ CircleCollider2D:
   m_Offset: {x: -0.37543428, y: -1.4392712}
   serializedVersion: 2
   m_Radius: 0.6055286
+--- !u!95 &2119680526238700247
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166871598216556809}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 337c05e2a7f30744bb6f58da3777696d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -124,6 +124,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             attackHitbox.transform.position = gameObject.transform.position + (Vector3.right * 1.25f * direction);
             attackHitbox.transform.position += Vector3.down * 0.5f;
             attackHitbox.SetActive(true);
+
+            AudioManager.PlaySoundEffect("attack-woosh",0.25f);
         }
     }
 

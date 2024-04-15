@@ -56,12 +56,17 @@ public class AudioManager : MonoBehaviour
 
     public static void PlaySoundEffect(string clipName)
     {
-        foreach ( AudioClip clip in Instance.SoundEffects )
+        PlaySoundEffect(clipName, 1f);
+    }
+
+    public static void PlaySoundEffect(string clipName, float volumeScale)
+    {
+        foreach (AudioClip clip in Instance.SoundEffects)
         {
             if (clip.name == clipName)
             {
                 Instance.FXplayer.clip = clip;
-                Instance.FXplayer.PlayOneShot(clip);
+                Instance.FXplayer.PlayOneShot(clip, volumeScale);
                 return;
             }
         }
@@ -70,8 +75,13 @@ public class AudioManager : MonoBehaviour
 
     public static void PlaySoundEffect(AudioClip clip)
     {
+        PlaySoundEffect(clip, 1f);
+    }
+
+    public static void PlaySoundEffect(AudioClip clip, float volumeScale)
+    {
         Instance.FXplayer.clip = clip;
-        Instance.FXplayer.PlayOneShot(clip);
+        Instance.FXplayer.PlayOneShot(clip, volumeScale);
     }
 
     public static void SetMusicTrack(string trackName)

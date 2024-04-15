@@ -4,7 +4,7 @@
 	width: 50%;
 	bottom: 0px;
 	right: 5%;
-	background-image: url("../../Sprites/Portrait/PlayerPortrait.png");
+	background-image: url("../../Sprites/Portrait/VillainPortrait.png");
 	-unity-background-scale-mode: scale-to-fit;
 }
 
@@ -20,7 +20,7 @@
 #TextContainer {
 	position: relative;
 	height: 65%;
-	width: 80%;
+	width: 65%;
 	top: 20%;
 	left: 10%;
 }

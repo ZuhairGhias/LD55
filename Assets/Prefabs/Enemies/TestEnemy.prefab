@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &2555440212036537102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,9 +171,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.75}
+  m_Offset: {x: 0, y: 0.61}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.58
 --- !u!95 &1950262775035642594
 Animator:
   serializedVersion: 5

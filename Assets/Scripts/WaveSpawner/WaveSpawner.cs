@@ -22,7 +22,8 @@ public class WaveEnemyInfo
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] public float horizontalSpawnDistance;
-    [SerializeField] public float verticalSpawnRange;
+    [SerializeField] public float verticalSpawnRangeHigh;
+    [SerializeField] public float verticalSpawnRangeLow;
     [SerializeField] public List<EnemyBase> enemyQueue;
 
     private float spawnRate;
@@ -92,7 +93,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (enemyQueue.Count > 0)
         {
-            float verticalOffset = UnityEngine.Random.Range(-verticalSpawnRange, verticalSpawnRange);
+            float verticalOffset = UnityEngine.Random.Range(verticalSpawnRangeLow, verticalSpawnRangeHigh);
             float horizontalOffset = (UnityEngine.Random.Range(0, 2) * horizontalSpawnDistance * 2) - horizontalSpawnDistance;
 
             Vector3 spawnPoint = spawnLocation + new Vector3(horizontalOffset, verticalOffset, 0);

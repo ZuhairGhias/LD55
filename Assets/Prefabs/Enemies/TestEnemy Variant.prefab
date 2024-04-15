@@ -9,8 +9,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -372681996465171212, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+      propertyPath: m_Radius
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: -372681996465171212, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_Offset.y
-      value: -1
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: deathSound

@@ -345,12 +345,12 @@ public class GameManager : MonoBehaviour
 
         //Second Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(wave2Data);
 
         //BossFight
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
         yield return DialogueSequence(dialogueBossPigeon);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(Boss1Data);
 
         yield return DialogueSequence(dialogueBossPigeonDefeated);
         AudioManager.PauseMusic(true);
@@ -368,17 +368,17 @@ public class GameManager : MonoBehaviour
 
         //First Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(wave3Data);
 
 
         //Second Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(wave4Data);
 
         //BossFight
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
         yield return DialogueSequence(dialogueBossMouse);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(Boss2Data);
 
         yield return DialogueSequence(dialogueBossMouseDefeated);
         AudioManager.PauseMusic(true);
@@ -393,13 +393,15 @@ public class GameManager : MonoBehaviour
         AudioManager.PlayMusic(true);
         yield return FadeToBlack(true);
         yield return FadeToWhite();
+        //First Checkpoint
+        yield return FightSequence(wave5Data, false);
 
         //Second Checkpoint
-        yield return FightSequence(wave1Data, false);
+        yield return FightSequence(wave6Data, false);
 
         //BossFight
         yield return DialogueSequence(dialogueBossMacaroon);
-        yield return FightSequence(wave1Data, false);
+        yield return FightSequence(Boss3Data, false);
 
         yield return DialogueSequence(dialogueBossMacaroonDefeated);
         AudioManager.PauseMusic(true);

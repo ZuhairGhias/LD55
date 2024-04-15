@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a5539c065174b7a4d82f7f823d8d8f53
+=======
+guid: 312064e2ee10cb24ba6a5a373e10afd5
+>>>>>>> 28f68d3 (Waves and Balance)
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,7 +50,11 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
+<<<<<<< HEAD
   alignment: 7
+=======
+  alignment: 0
+>>>>>>> 28f68d3 (Waves and Balance)
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}

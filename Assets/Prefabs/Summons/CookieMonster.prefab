@@ -104,8 +104,9 @@ MonoBehaviour:
   attackRange: 6
   attackDuration: 3
   maxHealth: 3
-  meleeDamage: 2
+  meleeDamage: 3
   deathSound: {fileID: 0}
+  hurtSound: {fileID: 0}
   drops: []
   dropRate: 0.5
   summonSound: {fileID: 8300000, guid: 059578740b6d45e47bb1cbc8683f5240, type: 3}

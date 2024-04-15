@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 3f2d85ab5534de248941c4e2e2b98dd1, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: fd2e5862c91ef4e46b517b733fa2fe6b, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 51777c3ac358ad246a93b34fdbede2a7, type: 3}
   m_SortingOrder: 0

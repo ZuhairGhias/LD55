@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2103022154409532324}
   - component: {fileID: 1809039289764753432}
   - component: {fileID: 7498162672033475250}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CustyBreadCollectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}

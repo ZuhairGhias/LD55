@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6111881253501461670}
   - component: {fileID: 7659281831313137916}
   - component: {fileID: 8672765112412587036}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CookieBallProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

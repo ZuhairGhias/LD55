@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 970789235835642667}
   - component: {fileID: 5564230141745927567}
   - component: {fileID: 271891122330707566}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AppleGobbler
   m_TagString: Summon
   m_Icon: {fileID: 0}
@@ -105,6 +105,8 @@ MonoBehaviour:
   attackDuration: 3
   maxHealth: 4
   meleeDamage: 3
+  drops: []
+  dropRate: 0.5
 --- !u!58 &5564230141745927567
 CircleCollider2D:
   m_ObjectHideFlags: 0

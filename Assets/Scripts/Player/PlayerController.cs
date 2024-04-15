@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
             sr.flipX = vector2.x < 0 ? true : vector2.x > 0 ? false : sr.flipX;
 
-            rb.MovePosition(rb.position + ( vector2 * new Vector2(moveSpeedX, moveSpeedY) * Time.deltaTime));
+            gameObject.transform.position += (Vector3)(vector2 * new Vector2(moveSpeedX, moveSpeedY) * Time.deltaTime);
         }
     }
 
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (sr.flipX) direction = -1;
             else direction = 1;
 
-            attackHitbox.transform.position = gameObject.transform.position + (Vector3.right * 2.5f * direction);
+            attackHitbox.transform.position = gameObject.transform.position + (Vector3.right * 2.0f * direction);
             attackHitbox.SetActive(true);
         }
     }

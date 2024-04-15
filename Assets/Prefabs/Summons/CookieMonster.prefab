@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6136180945217128878}
   - component: {fileID: -1235343330328761481}
   - component: {fileID: -731080906322945078}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CookieMonster
   m_TagString: Summon
   m_Icon: {fileID: 0}

@@ -132,7 +132,11 @@ public class MobBase : MonoBehaviour, IDamageable
     {
         if (target != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.GetComponent<Collider2D>().bounds.center, moveSpeed * Time.deltaTime);
+            Vector3 targetPosition = target.GetComponent<Collider2D>().bounds.center;
+            targetPosition.y -= (transform.position.y - targetPosition.y) * 3;
+            Vector3 movementVector = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            transform.position = movementVector;
+            
             _animator.SetBool("FacingRight", transform.position.x < target.transform.position.x);
             _spriteRenderer.flipX = !_animator.GetBool("FacingRight");
         }

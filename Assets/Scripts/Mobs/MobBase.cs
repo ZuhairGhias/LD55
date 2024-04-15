@@ -136,8 +136,8 @@ public class MobBase : MonoBehaviour, IDamageable
     {
         if (target != null)
         {
-            Vector3 targetPosition = target.GetComponent<Collider2D>().bounds.center;
-            targetPosition.y -= (transform.position.y - targetPosition.y) * 3;
+            Vector3 targetPosition = target.GetComponent<Collider2D>().bounds.min;
+            targetPosition.y -= (transform.position.y - targetPosition.y) * 2;
             Vector3 movementVector = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             transform.position = movementVector;
             

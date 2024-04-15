@@ -13,6 +13,7 @@ public class MobBase : MonoBehaviour, IDamageable
     [SerializeField] public int meleeDamage;
 
     public AudioClip deathSound;
+    public AudioClip hurtSound;
 
     protected MobState state;
     protected GameObject target;
@@ -89,7 +90,7 @@ public class MobBase : MonoBehaviour, IDamageable
             Move(target);
             _animator.SetBool("Moving", true);
 
-            if (Vector3.Distance(transform.position, target.transform.position) <= attackRange) SET_STATE(MobState.ATTACK);
+            if (Vector3.Distance(transform.position, target.GetComponent<Collider2D>().bounds.center) <= attackRange) SET_STATE(MobState.ATTACK);
         }
     }
 
@@ -177,8 +178,10 @@ public class MobBase : MonoBehaviour, IDamageable
     {
         Health -= dmg;
         _animator.SetTrigger("Damaged");
-        if (Health <= 0) die();
 
+        AudioManager.PlaySoundEffect(hurtSound);
+
+        if (Health <= 0) die();
     }
 
     void die()

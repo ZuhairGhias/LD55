@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
 
     void Start()
     {
-        transform.DOMoveX(transform.position.x + Random.Range(-1, 1), 1).SetEase(Ease.OutExpo);
+        transform.DOMoveX(transform.position.x + Random.Range(-1f, 1f), 1).SetEase(Ease.OutExpo);
         transform.DOMoveY(Mathf.Max(transform.position.y - 0.5f), 1).SetEase(Ease.OutBounce);
     }
 

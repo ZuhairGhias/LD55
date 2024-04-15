@@ -344,11 +344,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5033812913116853437, guid: c59df437f04abb149a085107fdfa2f51, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 618564625263516270, guid: c59df437f04abb149a085107fdfa2f51, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8761155092720390210}
   m_SourcePrefab: {fileID: 100100000, guid: c59df437f04abb149a085107fdfa2f51, type: 3}
+--- !u!1 &8761155092720390209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 618564625263516270, guid: c59df437f04abb149a085107fdfa2f51, type: 3}
+  m_PrefabInstance: {fileID: 8761155092720390208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8761155092720390210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761155092720390209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61313c40a902b464ca02e233a5170458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: {fileID: 11400000, guid: d9d78a2c6fa2cf24bbf855e8d04104f9, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

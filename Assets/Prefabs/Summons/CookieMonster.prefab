@@ -109,6 +109,7 @@ MonoBehaviour:
   drops: []
   dropRate: 0.5
   summonSound: {fileID: 8300000, guid: 059578740b6d45e47bb1cbc8683f5240, type: 3}
+  followRange: 4
   CookieProjectile: {fileID: 6111881253501461670, guid: 03d8e5b21b777474d85c0afbd95a9475, type: 3}
 --- !u!58 &-1235343330328761481
 CircleCollider2D:

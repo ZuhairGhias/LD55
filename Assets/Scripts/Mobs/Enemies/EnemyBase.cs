@@ -6,21 +6,12 @@ using UnityEngine.UIElements;
 
 public class EnemyBase : MobBase
 {
-    protected GameObject player;
-
     public static Action EnemySpawned;
     public static Action EnemyDestroyed;
 
     private void Awake()
     {
         EnemySpawned?.Invoke();
-    }
-
-    protected override void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        base.Start();
     }
 
     protected override GameObject chooseTarget()
@@ -31,26 +22,6 @@ public class EnemyBase : MobBase
         if (closestOp == null) closestOp = player;
 
         return closestOp;
-    }
-
-    protected override void DealAttack()
-    {
-        /*
-        Vector3 directionOfTarget = target.transform.position - gameObject.transform.position;
-        directionOfTarget.Normalize();
-        directionOfTarget *= meleeDistance;
-
-        RaycastHit2D hit = Physics2D.CircleCast(gameObject.transform.position, meleeRadius, directionOfTarget);
-        if (hit)
-        {
-            if (hit.collider.gameObject.tag == "Summon")
-            {
-                hit.collider.gameObject.GetComponent<MobBase>().damage(meleeDamage);
-            }
-        }
-        */
-
-        base.DealAttack();
     }
 
     protected override void Move(GameObject target)

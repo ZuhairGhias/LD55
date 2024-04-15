@@ -5,6 +5,7 @@ using UnityEngine;
 public class SummonBase : MobBase
 {
     public AudioClip summonSound;
+    public float followRange;
 
     protected override void Start()
     {
@@ -17,26 +18,36 @@ public class SummonBase : MobBase
     {
         opponents = GameObject.FindGameObjectsWithTag("Enemy");
 
-        return findClosestOpponentInTargetRange();
+        GameObject closestOp = findClosestOpponentInTargetRange();
+        if (closestOp == null) closestOp = player;
+
+        return closestOp;
     }
 
-    protected override void DealAttack()
+    override protected void Move(GameObject target)
     {
-        /*
-        Vector3 directionOfTarget = target.transform.position - gameObject.transform.position;
-        directionOfTarget.Normalize();
-        directionOfTarget *= meleeDistance;
-
-        RaycastHit2D hit = Physics2D.CircleCast(gameObject.transform.position, meleeRadius, directionOfTarget);
-        if (hit)
+        if (target == player)
         {
-            if (hit.collider.gameObject.tag == "Enemy")
+            if (Vector3.Distance(transform.position, target.transform.position) > followRange)
             {
-                hit.collider.gameObject.GetComponent<MobBase>().damage(meleeDamage);
+                Vector3 targetPosition = target.GetComponent<Collider2D>().bounds.center;
+                Vector3 movementVector = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                transform.position = movementVector;
             }
+            _animator.SetBool("FacingRight", transform.position.x < target.transform.position.x);
+            _spriteRenderer.flipX = !_animator.GetBool("FacingRight");
         }
-        */
+        else base.Move(target);
+    }
 
-        base.DealAttack();
+    override protected void CHASE_UPDATE()
+    {
+        if (target == player)
+        {
+            chooseTarget();
+            Move(target);
+            _animator.SetBool("Moving", true);
+        }
+        else base.CHASE_UPDATE();
     }
 }

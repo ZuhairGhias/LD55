@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: itemClass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1809039289764753432, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e8d3d9b1658befd42a897609b3132349, type: 3}
     - target: {fileID: 2103022154409532324, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.1166667

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class SummonBase : MobBase
 {
+    public AudioClip summonSound;
+
     protected override void Start()
     {
+        AudioManager.PlaySoundEffect(summonSound);
+        AudioManager.PlaySoundEffect("summon-poof");
         base.Start();
     }
 

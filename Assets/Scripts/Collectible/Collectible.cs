@@ -7,6 +7,7 @@ using static InventoryItem;
 public class Collectible : MonoBehaviour
 {
     public ItemClass itemClass;
+    public AudioClip pickupSound;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class Collectible : MonoBehaviour
 
     private void OnDestroy()
     {
+        AudioManager.PlaySoundEffect(pickupSound);
         transform.DOKill();
     }
 }

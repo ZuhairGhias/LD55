@@ -36,7 +36,7 @@ public class PlayerSummoner : MonoBehaviour
             if (inventory.IsStageFull())
             {
                 Debug.Log("Stage is full. Could not make a recipe. Clearing.");
-
+                AudioManager.PlaySoundEffect("summon-fail");
                 inventory.ReturnStagedItems();
             }
         }

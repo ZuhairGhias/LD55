@@ -80,7 +80,9 @@ MonoBehaviour:
     spawnRate: 0
     enemies: []
   dialogueOne: {fileID: 11400000, guid: b5c0065fd8516ef45a36d9efce38a01a, type: 2}
-  dialogueBossOne: {fileID: 11400000, guid: 6ca06626d00192f419031713e67049da, type: 2}
-  dialogueBossTwo: {fileID: 0}
-  dialogueBossThree: {fileID: 0}
-  dialogueEnd: {fileID: 0}
+  dialogueBossPigeon: {fileID: 11400000, guid: 897cb5df08cb0684890b056ec253b7d4, type: 2}
+  dialogueBossPigeonDefeated: {fileID: 11400000, guid: 7b4bb2b9ef8f9374a9ba4f6d1bb3d110, type: 2}
+  dialogueBossMouse: {fileID: 11400000, guid: f2db9943f5f384641aea7b3fbb13523c, type: 2}
+  dialogueBossMouseDefeated: {fileID: 11400000, guid: 911f502b3b9128743b6c5bcbc54acf8f, type: 2}
+  dialogueBossMacaroon: {fileID: 11400000, guid: 5a69ffc5b4559e94abbc64b749ac9a31, type: 2}
+  dialogueBossMacaroonDefeated: {fileID: 11400000, guid: a63b95ce61a77da498a7ccfe75484b07, type: 2}

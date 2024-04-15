@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static void StartGame()
     {
-        instance.StartGameLoop();
+        instance.isGameStarted = true;
     }
 
     /// <summary>
@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
                     SceneManager.LoadScene("Credits");
                     break;
                 case "Credits":
-                    //yield return WaitForCreditsEnd();
+                    yield return WaitForCreditsEnd();
                     SceneManager.LoadScene("Main Menu");
                     break;
             }
@@ -308,10 +308,17 @@ public class GameManager : MonoBehaviour
         //BossFight
         yield return DialogueSequence(dialogueBossMacaroon);
         yield return FightSequence(wave1Data, false);
-        cameraMovement.cameraState = CameraMovement.CameraStates.Stop;
 
         yield return DialogueSequence(dialogueBossMacaroonDefeated);
         yield return new WaitForSeconds(2);
 
+    }
+
+    public IEnumerator WaitForCreditsEnd()
+    {
+        while (!CreditManager.CreditsFinished)
+        {
+            yield return null;
+        }
     }
 }

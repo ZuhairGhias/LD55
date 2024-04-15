@@ -48,8 +48,39 @@ MonoBehaviour:
   player: {fileID: 0}
   cameraMovement: {fileID: 0}
   checkPointSpawnedDistance: 10
-  waveData:
-    spawnRate: 5
+  wave1Data:
+    spawnRate: 4
     enemies:
     - enemyData: {fileID: 11400000, guid: f5ecc600766310a4aa06773ad6ad2ed1, type: 2}
-      count: 10
+      count: 1
+    - enemyData: {fileID: 11400000, guid: 7f56d87e8c987264bb520ca286ab8004, type: 2}
+      count: 1
+  wave2Data:
+    spawnRate: 0
+    enemies: []
+  Boss1Data:
+    spawnRate: 0
+    enemies: []
+  wave3Data:
+    spawnRate: 0
+    enemies: []
+  wave4Data:
+    spawnRate: 0
+    enemies: []
+  Boss2Data:
+    spawnRate: 0
+    enemies: []
+  wave5Data:
+    spawnRate: 0
+    enemies: []
+  wave6Data:
+    spawnRate: 0
+    enemies: []
+  Boss3Data:
+    spawnRate: 0
+    enemies: []
+  dialogueOne: {fileID: 11400000, guid: b5c0065fd8516ef45a36d9efce38a01a, type: 2}
+  dialogueBossOne: {fileID: 11400000, guid: 6ca06626d00192f419031713e67049da, type: 2}
+  dialogueBossTwo: {fileID: 0}
+  dialogueBossThree: {fileID: 0}
+  dialogueEnd: {fileID: 0}

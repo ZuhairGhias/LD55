@@ -16,13 +16,31 @@ public class GameManager : MonoBehaviour
     private bool waveDefeated = false;
     private bool isSceneLoaded = false;
     private bool isDialogueFinished = false;
+    private bool isGameStarted = false;
 
+    [Header("Waves")]
     #region WaveData
-    public WaveData waveData;
+    //Level 1
+    public WaveData wave1Data;
+    public WaveData wave2Data;
+    public WaveData Boss1Data;
+    //Level 2
+    public WaveData wave3Data;
+    public WaveData wave4Data;
+    public WaveData Boss2Data;
+    //Level 3
+    public WaveData wave5Data;
+    public WaveData wave6Data;
+    public WaveData Boss3Data;
     #endregion
 
+    [Header("Dialogues")]
     #region dialogue
     public DialogueScene dialogueOne;
+    public DialogueScene dialogueBossOne;
+    public DialogueScene dialogueBossTwo;
+    public DialogueScene dialogueBossThree;
+    public DialogueScene dialogueEnd;
     #endregion
 
     #region Monobehavior
@@ -184,16 +202,41 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameLoop()
     {
-        yield return WaitForSceneToLoad();
-        switch (SceneManager.GetActiveScene().name)
+        while (true)
         {
-            case "Main Menu":
-                break;
-            case "Level1":
-                yield return FirstLevel();
-                break;
-            case "":
-                break;
+            yield return WaitForSceneToLoad();
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "Main Menu":
+                    yield return WaitForGameStart();
+                    SceneManager.LoadScene("Level1");
+                    break;
+                case "Level1":
+                    yield return FirstLevel();
+                    SceneManager.LoadScene("Level2");
+                    break;
+                case "Level2":
+                    yield return SecondLevel();
+                    SceneManager.LoadScene("Level3");
+                    break;
+                case "Level3":
+                    yield return FinalLevel();
+                    SceneManager.LoadScene("Credits");
+                    break;
+                case "Credits":
+                    //yield return WaitForCreditsEnd();
+                    SceneManager.LoadScene("Main Menu");
+                    break;
+            }
+        }
+    }
+
+    private IEnumerator WaitForGameStart()
+    {
+        isGameStarted = false;
+        while(!isGameStarted)
+        {
+            yield return null;
         }
     }
 
@@ -201,36 +244,61 @@ public class GameManager : MonoBehaviour
     {
 
         yield return DialogueSequence(dialogueOne);
+        
+        //First Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return FightSequence(waveData);
-        //DialogueManager.Play(DIALOGUE_DATA)
-
-        //While(DialogueManager.IsPlaying)
-        {
-            yield return null;
-        }
+        yield return FightSequence(wave1Data);
 
 
-        // SpawnManager.Spawn(WAVE_DATA)
+        //Second Checkpoint
+        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
+        yield return FightSequence(wave1Data);
 
-        //While(SpawnManager.EnemiesBeingSpawnedOrAlive)
-        {
-            yield return null;
-        }
+        //BossFight
+        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
+        yield return DialogueSequence(dialogueBossOne);
+        yield return FightSequence(wave1Data);
+    }
 
-        //DialogueManager.Play(BOSS_DIALOGUE_DATA)
+    private IEnumerator SecondLevel()
+    {
 
-        //While(DialogueManager.IsPlaying)
-        {
-            yield return null;
-        }
+        yield return DialogueSequence(dialogueOne);
 
-        // SpawnManager.Spawn(WAVE_DATA)
+        //First Checkpoint
+        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
+        yield return FightSequence(wave1Data);
 
-        //While(DialogueManager.IsPlaying)
-        {
-            yield return null;
-        }
+
+        //Second Checkpoint
+        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
+        yield return FightSequence(wave1Data);
+
+        //BossFight
+        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
+        yield return DialogueSequence(dialogueBossOne);
+        yield return FightSequence(wave1Data);
+
+    }
+
+    private IEnumerator FinalLevel()
+    {
+
+        yield return DialogueSequence(dialogueOne);
+
+        //First Checkpoint
+        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
+        yield return FightSequence(wave1Data);
+
+
+        //Second Checkpoint
+        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
+        yield return FightSequence(wave1Data);
+
+        //BossFight
+        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
+        yield return DialogueSequence(dialogueBossOne);
+        yield return FightSequence(wave1Data);
 
     }
 }

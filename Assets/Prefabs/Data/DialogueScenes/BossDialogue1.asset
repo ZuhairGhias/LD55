@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5207c407232dfd47ba621e0173a330e, type: 3}
+  m_Name: BossDialogue1
+  m_EditorClassIdentifier: 
+  speakers:
+  - {fileID: 11400000, guid: 95059aa89b7ff214a927262af1254d96, type: 2}
+  - {fileID: 11400000, guid: b727c608f9623b042a3b0b96a386df89, type: 2}
+  lines:
+  - "Macaroon says I can\u2019t let you pass, so you oughta high tail it outta here!"
+  - "Why don\u2019t you shut your trap your hunk-a trash"
+  speakerIndexes: 0100000000000000

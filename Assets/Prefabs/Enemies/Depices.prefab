@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1933188978210054075
+--- !u!1001 &2916158165248878781
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,35 +10,51 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -372681996465171212, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_Radius
-      value: 0.89
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: -372681996465171212, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_Offset.y
-      value: 1.04
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+      propertyPath: moveSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: deathSound
       value: 
-      objectReference: {fileID: 8300000, guid: 1c93e5f03c3daa546800d07a74c7fd8f, type: 3}
+      objectReference: {fileID: 8300000, guid: fcfd1b138ad6a7d429a7a77e337f29bb, type: 3}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: attackRange
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: meleeDamage
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+      propertyPath: targetRange
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+      propertyPath: attackDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_Name
-      value: TestEnemy Variant
+      value: Depices
       objectReference: {fileID: 0}
     - target: {fileID: 5542263987398744524, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 9.996797
       objectReference: {fileID: 0}
     - target: {fileID: 5542263987398744524, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.7879858
       objectReference: {fileID: 0}
     - target: {fileID: 5542263987398744524, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -75,17 +91,44 @@ PrefabInstance:
     - target: {fileID: 9155593176203723990, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4ee26dd7b38ca7d42ba604c077b590e4, type: 3}
-    - target: {fileID: 9155593176203723990, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9155593176203723990, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1060885751
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+      objectReference: {fileID: 21300000, guid: 0a38874716ebc4f43b8607098828f088, type: 3}
+    m_RemovedComponents:
+    - {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3140617483815288633}
   m_SourcePrefab: {fileID: 100100000, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+--- !u!1 &7012412630228818572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+  m_PrefabInstance: {fileID: 2916158165248878781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3140617483815288633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7012412630228818572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec31fa5c8306eb4b91b1151363380c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1.5
+  targetRange: 14
+  attackRange: 3
+  attackDuration: 5
+  maxHealth: 30
+  meleeDamage: 4
+  deathSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: fcfd1b138ad6a7d429a7a77e337f29bb, type: 3}
+  drops:
+  - {fileID: 1218131760427048982, guid: 24a85b0f7c5eccc25a3430c80cf1c11c, type: 3}
+  - {fileID: 1809039289764753432, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
+  - {fileID: 6562421301327330515, guid: e8d9f043050b9e472979c77963f3c066, type: 3}
+  dropRate: 0.5
+  EggProjectile: {fileID: 6111881253501461670, guid: 3dbf0f3252f1741498b0628e97c9bee3, type: 3}

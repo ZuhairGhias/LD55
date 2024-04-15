@@ -3,4 +3,5 @@
     <ui:VisualElement name="Cell" />
     <ui:VisualElement name="Icon" />
     <ui:Label name="Count" text="50" />
+    <ui:Label name="InputKey" text="u" />
 </ui:UXML>

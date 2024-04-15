@@ -33,12 +33,14 @@ public class HUD : MonoBehaviour
         // Set up hot bar
         Sprite[] sprites = new Sprite[slots.Count];
         int[] capacities = new int[slots.Count];
+        string[] inputKeys = new string[slots.Count];
         for (int i = 0; i < slots.Count; i++)
         {
             sprites[i] = slots[i].InventoryItem.ItemSprite;
             capacities[i] = slots[i].capacity;
+            inputKeys[i] = slots[i].inputKey;
         }
-        hotBar = new HotBar(sprites, capacities);
+        hotBar = new HotBar(sprites, capacities, inputKeys);
         hotBar.name = "HotBar";
         hud.Add(hotBar);
     }

@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private InventoryItem[] itemData;
     public Dictionary<ItemClass, int> stagedItems;
     private const int stagedItemLimit = 3;
+    private int itemsToFail;
+    private int itemsToSucceed;
 
     public static Action<ItemClass, int> InventoryUpdate;
 
@@ -70,10 +72,7 @@ public class Inventory : MonoBehaviour
     // Adds an item to the staging area if possible, taking it from the inventory
     public void ReturnStagedItems()
     {
-        for (int i = 0; i < CountStagedItems(); i++)
-        {
-            stagedObjects[i].GetComponent<Animator>().Play("Base Layer.Fail");
-        }
+        itemsToFail = CountStagedItems();
 
         foreach(ItemClass item in stagedItems.Keys)
         {
@@ -86,12 +85,9 @@ public class Inventory : MonoBehaviour
 
     public void ConsumeStagedItems()
     {
-        stagedItems.Clear();
+        itemsToSucceed = CountStagedItems();
 
-        foreach (GameObject obj in stagedObjects)
-        {
-            obj.GetComponent<Animator>().Play("Base Layer.Success");
-        }
+        stagedItems.Clear();
     }
 
     public bool IsStageFull()
@@ -167,5 +163,21 @@ public class Inventory : MonoBehaviour
     internal bool IsStaged(ItemClass item, int amount)
     {
         return stagedItems.ContainsKey(item) && stagedItems[item] == amount;
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < itemsToFail; i++)
+        {
+            stagedObjects[i].GetComponent<Animator>().Play("Base Layer.Fail");
+        }
+
+        for (int i = 0; i < itemsToSucceed; i++)
+        {
+            stagedObjects[i].GetComponent<Animator>().Play("Base Layer.Success");
+        }
+
+        itemsToFail = 0;
+        itemsToSucceed = 0;
     }
 }

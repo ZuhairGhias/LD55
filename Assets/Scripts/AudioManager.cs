@@ -86,11 +86,11 @@ public class AudioManager : MonoBehaviour
 
     public static void SetMusicTrack(string trackName)
     {
-        foreach (AudioClip clip in Instance.SoundEffects)
+        foreach (AudioClip clip in Instance.MusicTracks)
         {
             if (clip.name == trackName)
             {
-                Instance.FXplayer.clip = clip;
+                Instance.Jukebox.clip = clip;
                 return;
             }
         }

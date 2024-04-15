@@ -136,15 +136,18 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Fight
-    private IEnumerator FightSequence(WaveData waveData)
+    private IEnumerator FightSequence(WaveData waveData, bool resumeCamera = true)
     {
         cameraMovement.cameraState = CameraMovement.CameraStates.Stop;
-        
+
         waveDefeated = false;
         WaveSpawner.StartWave(waveData, new(cameraMovement.transform.position.x, 0));
         yield return WaitForWaveToBeDefeated();
 
-        cameraMovement.cameraState = CameraMovement.CameraStates.Active;
+        if (resumeCamera)
+        {
+            cameraMovement.cameraState = CameraMovement.CameraStates.Active;
+        }
     }
 
     private void OnWaveDefeated()
@@ -244,6 +247,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator FirstLevel()
     {
+        AudioManager.SetMusicTrack("Level 1 loop");
+        AudioManager.PlayMusic();
 
         yield return DialogueSequence(dialogueOne);
         
@@ -267,6 +272,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SecondLevel()
     {
+        AudioManager.SetMusicTrack("Level 2 loop");
+        AudioManager.PlayMusic();
 
         //First Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
@@ -291,16 +298,17 @@ public class GameManager : MonoBehaviour
     {
 
 
-
+        AudioManager.SetMusicTrack("Level 3 loop");
+        AudioManager.PlayMusic();
 
 
         //Second Checkpoint
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(wave1Data, false);
 
         //BossFight
-        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
         yield return DialogueSequence(dialogueBossMacaroon);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(wave1Data, false);
+        cameraMovement.cameraState = CameraMovement.CameraStates.Stop;
 
         yield return DialogueSequence(dialogueBossMacaroonDefeated);
         yield return new WaitForSeconds(2);

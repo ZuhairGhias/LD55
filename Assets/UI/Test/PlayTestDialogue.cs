@@ -18,7 +18,7 @@ public class PlayTestDialogue : MonoBehaviour
     {
         if (!playing)
         {
-            GetComponent<DialogueManager>().PlayDialogue(scene);
+            DialogueManager.PlayDialogue(scene);
             playing = true;
         }
     }

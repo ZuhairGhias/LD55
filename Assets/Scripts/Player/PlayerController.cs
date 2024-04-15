@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private PlayerSummoner summoner;
 
     private Animator animator;
-    private SpriteRenderer sr;
+    public SpriteRenderer sr;
 
     private float attackTimer;
 
@@ -80,7 +80,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         DebugUtils.HandleErrorIfNullGetComponent(summoner, this);
         animator = GetComponent<Animator>();
         DebugUtils.HandleErrorIfNullGetComponent(animator, this);
-        sr = GetComponent<SpriteRenderer>();
         DebugUtils.HandleErrorIfNullGetComponent(sr, this);
         Health = maxHealth;
     }
@@ -120,9 +119,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
             if (sr.flipX) direction = -1;
             else direction = 1;
-
-            attackHitbox.transform.position = gameObject.transform.position + (Vector3.right * 1.25f * direction);
-            attackHitbox.transform.position += Vector3.down * 0.5f;
+            Vector3 current = attackHitbox.transform.localPosition;
+            attackHitbox.transform.localPosition = new(Mathf.Abs(current.x)*direction, current.y, current.z);
             attackHitbox.SetActive(true);
         }
     }

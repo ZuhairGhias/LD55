@@ -8,7 +8,7 @@ public class MobBase : MonoBehaviour, IDamageable
     [SerializeField] public float targetRange = 10.0f;
     [SerializeField] public float attackRange = 1.0f;
     [SerializeField] public float attackDuration = 3.0f;
-    [SerializeField] public int maxHealth = 100;
+    [SerializeField] public float maxHealth = 100;
 
     [SerializeField] public int meleeDamage;
 
@@ -16,7 +16,7 @@ public class MobBase : MonoBehaviour, IDamageable
     protected GameObject target;
     protected GameObject[] opponents;
     protected float attackTimer;
-    protected int _health;
+    protected float _health;
     protected Animator _animator;
     protected SpriteRenderer _spriteRenderer;
 
@@ -151,7 +151,7 @@ public class MobBase : MonoBehaviour, IDamageable
         }
     }
 
-    public int Health
+    public float Health
     {
         get
         {
@@ -164,7 +164,7 @@ public class MobBase : MonoBehaviour, IDamageable
         }
     }
 
-    public void damage(int dmg)
+    public void damage(float dmg)
     {
         Health -= dmg;
         _animator.SetTrigger("Damaged");

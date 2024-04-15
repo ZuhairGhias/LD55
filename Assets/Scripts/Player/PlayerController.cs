@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] public float moveSpeedX = 10f;
     [SerializeField] public float moveSpeedY = 2f;
     [SerializeField] public float attackDuration = 0.3f;
+    [SerializeField] public float attackDamage = 0.5f;
     [SerializeField] public GameObject attackHitbox;
-    [SerializeField] public int maxHealth = 100;
+    [SerializeField] public float maxHealth = 100;
 
     private Rigidbody2D rb;
 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public static Action<float> PlayerDamage;
     public static Action PlayerDeath;
 
-    protected int _health;
+    protected float _health;
 
     [SerializeField]
     public PlayerState _currentState = PlayerState.READY;
@@ -104,12 +105,13 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (sr.flipX) direction = -1;
             else direction = 1;
 
-            attackHitbox.transform.position = gameObject.transform.position + (Vector3.right * 2.0f * direction);
+            attackHitbox.transform.position = gameObject.transform.position + (Vector3.right * 1.25f * direction);
+            attackHitbox.transform.position += Vector3.down * 0.5f;
             attackHitbox.SetActive(true);
         }
     }
 
-    public int Health
+    public float Health
     {
         get
         {
@@ -122,7 +124,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void damage(int dmg)
+    public void damage(float dmg)
     {
         Health -= dmg;
         if (Health <= 0) Die();

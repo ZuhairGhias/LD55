@@ -12,6 +12,8 @@ public class MobBase : MonoBehaviour, IDamageable
 
     [SerializeField] public int meleeDamage;
 
+    public AudioClip deathSound;
+
     protected MobState state;
     protected GameObject target;
     protected GameObject[] opponents;
@@ -174,6 +176,8 @@ public class MobBase : MonoBehaviour, IDamageable
 
     void die()
     {
+        AudioManager.PlaySoundEffect(deathSound);
+
         foreach(Collectible drop in drops)
         {
             if(Random.Range(0, 1) < dropRate)

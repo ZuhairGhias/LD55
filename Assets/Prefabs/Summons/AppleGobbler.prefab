@@ -105,8 +105,10 @@ MonoBehaviour:
   attackDuration: 3
   maxHealth: 4
   meleeDamage: 3
+  deathSound: {fileID: 0}
   drops: []
   dropRate: 0.5
+  summonSound: {fileID: 0}
 --- !u!58 &5564230141745927567
 CircleCollider2D:
   m_ObjectHideFlags: 0

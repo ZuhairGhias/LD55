@@ -67,6 +67,7 @@ public class EnemyBase : MobBase
         if (other.tag == "Hitbox")
         {
             damage(player.GetComponent<PlayerController>().attackDamage);
+            AudioManager.PlaySoundEffect("attack-hit");
             //Debug.Log("Bonked!");
         }
 

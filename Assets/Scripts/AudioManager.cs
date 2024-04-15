@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource audioSource;
-
     [Range(0f, 1f)]
     public float DefaultVolume;
+    public AudioClip[] SoundEffects;
+    public AudioClip[] MusicTracks;
+    public AudioSource Jukebox;
+    public AudioSource FXplayer;
 
     private const string VolumePrefKey = "Volume";
 
@@ -32,9 +34,6 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        DebugUtils.HandleErrorIfNullGetComponent(audioSource, this);
-
         DontDestroyOnLoad(this);
         if(!PlayerPrefs.HasKey(VolumePrefKey))
         {
@@ -50,9 +49,53 @@ public class AudioManager : MonoBehaviour
     public static void SetVolume(float volume)
     {
         PlayerPrefs.SetFloat(VolumePrefKey, volume);
-        Instance.audioSource.volume = volume;
+        Instance.Jukebox.volume = volume;
+        Instance.FXplayer.volume = volume;
         print(volume);
     }
 
-    
+    public static void PlaySoundEffect(string clipName)
+    {
+        foreach ( AudioClip clip in Instance.SoundEffects )
+        {
+            if (clip.name == clipName)
+            {
+                Instance.FXplayer.clip = clip;
+                Instance.FXplayer.Play();
+                return;
+            }
+        }
+        Debug.Log("Sound Effect " + clipName + " not found in AudioManager!");
+    }
+
+    public static void PlaySoundEffect(AudioClip clip)
+    {
+        Instance.FXplayer.clip = clip;
+        Instance.FXplayer.Play();
+    }
+
+    public static void SetMusicTrack(string trackName)
+    {
+        foreach (AudioClip clip in Instance.SoundEffects)
+        {
+            if (clip.name == trackName)
+            {
+                Instance.FXplayer.clip = clip;
+                return;
+            }
+        }
+        Debug.Log("Track " + trackName + " not found in AudioManager!");
+    }
+
+    public static void PlayMusic()
+    {
+        
+        Instance.Jukebox.Play();
+    }
+
+    public static void PauseMusic()
+    {
+
+        Instance.Jukebox.Pause();
+    }
 }

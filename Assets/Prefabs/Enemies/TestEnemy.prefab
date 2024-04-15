@@ -106,6 +106,7 @@ MonoBehaviour:
   attackDuration: 3
   maxHealth: 2
   meleeDamage: 1
+  deathSound: {fileID: 8300000, guid: 58780e3b684775b46b08faabe1fed229, type: 3}
   drops:
   - {fileID: 6562421301327330515, guid: e8d9f043050b9e472979c77963f3c066, type: 3}
   - {fileID: 1809039289764753432, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}

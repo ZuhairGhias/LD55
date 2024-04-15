@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 using static InventoryItem;
 using static UnityEditor.Progress;
@@ -51,6 +52,20 @@ public class Inventory : MonoBehaviour
             }
 
             stagedItems[item]++;
+
+            switch (CountStagedItems())
+            {
+                case 1:
+                    AudioManager.PlaySoundEffect("summon-01");
+                    break;
+                case 2:
+                    AudioManager.PlaySoundEffect("summon-02");
+                    break;
+                case 3:
+                    AudioManager.PlaySoundEffect("summon-03");
+                    break;
+            }
+
             return true;
         }
 

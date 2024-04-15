@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemAmounts:
   - item: 0
-    amount: 2
+    amount: 1
   - item: 2
+    amount: 1
+  - item: 1
     amount: 1
   Summon: {fileID: 970789235835642667, guid: 994f44de8911ab24da7a60ecfe031919, type: 3}

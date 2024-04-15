@@ -66,7 +66,7 @@ public class EnemyBase : MobBase
     {
         if (other.tag == "Hitbox")
         {
-            damage(1);
+            damage(player.GetComponent<PlayerController>().attackDamage);
             //Debug.Log("Bonked!");
         }
 

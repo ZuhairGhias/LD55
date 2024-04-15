@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 7142736630659366319}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 3, z: 1}
+  m_LocalPosition: {x: 1.25, y: -0.5, z: 0}
+  m_LocalScale: {x: 2, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2948830465885097077}
@@ -211,7 +211,7 @@ SpriteRenderer:
   m_SortingLayerID: -1060885751
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: caa6f59c54587844aac82561da42095a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1c8202b03b98d7489184b60113c7f95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -246,9 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64076289eb163954490755c5209e71f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedX: 6
-  moveSpeedY: 2
+  moveSpeedX: 4
+  moveSpeedY: 1
   attackDuration: 0.3
+  attackamage: 0.5
   attackHitbox: {fileID: 7142736630659366319}
   maxHealth: 20
   _currentState: 0
@@ -361,6 +362,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3330685, y: -1}
+  m_Offset: {x: -0.37543428, y: -1.4392712}
   serializedVersion: 2
-  m_Radius: 0.6669315
+  m_Radius: 0.6055286

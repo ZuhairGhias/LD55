@@ -23,6 +23,21 @@ public class Collector : MonoBehaviour
         {
             Debug.Log("collectible " + collectible.name);
             inventory.TryAddItem(collectible.itemClass);
+            
+
+            switch (collectible.itemClass)
+            {
+                case ItemClass.FRUIT:
+                    AudioManager.PlaySoundEffect("fruit-pickup");
+                    break;
+                case ItemClass.CANDY:
+                    AudioManager.PlaySoundEffect("candy-item-pickup");
+                    break;
+                case ItemClass.CRUSTY_BREAD:
+                    AudioManager.PlaySoundEffect("stale-bread-pickup");
+                    break;
+            }
+
             Destroy(collectible.gameObject);
         }
     }

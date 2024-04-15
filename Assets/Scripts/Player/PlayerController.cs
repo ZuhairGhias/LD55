@@ -122,6 +122,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             Vector3 current = attackHitbox.transform.localPosition;
             attackHitbox.transform.localPosition = new(Mathf.Abs(current.x)*direction, current.y, current.z);
             attackHitbox.SetActive(true);
+
+            AudioManager.PlaySoundEffect("attack-woosh",0.25f);
         }
     }
 

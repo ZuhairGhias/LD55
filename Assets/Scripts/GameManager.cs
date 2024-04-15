@@ -197,6 +197,11 @@ public class GameManager : MonoBehaviour
         instance.isGameStarted = true;
     }
 
+    public static void Quit()
+    {
+        Application.Quit();
+    }
+
     /// <summary>
     /// Singletin game loop
     /// </summary>

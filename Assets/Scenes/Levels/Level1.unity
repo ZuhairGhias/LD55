@@ -170,10 +170,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 540129179383030990, guid: 7a144012e82700144af2a82342bf00c8, type: 3}
-      propertyPath: verticalSpawnRangeLow
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 1942710865824646783, guid: 7a144012e82700144af2a82342bf00c8, type: 3}
       propertyPath: m_Name
       value: WaveSpawner
@@ -223,37 +219,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a144012e82700144af2a82342bf00c8, type: 3}
---- !u!1 &103803514
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 103803515}
-  m_Layer: 0
-  m_Name: DLETE
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &103803515
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103803514}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.59159327, y: 1.08, z: -0.004455061}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &415879986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,6 +227,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4606197937947127701, guid: 03b9d31cfc6d29f4fb895c885024f3c1, type: 3}
+      propertyPath: dialogueBossOne
+      value: 
+      objectReference: {fileID: 11400000, guid: 897cb5df08cb0684890b056ec253b7d4, type: 2}
+    - target: {fileID: 4606197937947127701, guid: 03b9d31cfc6d29f4fb895c885024f3c1, type: 3}
+      propertyPath: dialogueBossMouse
+      value: 
+      objectReference: {fileID: 11400000, guid: f2db9943f5f384641aea7b3fbb13523c, type: 2}
+    - target: {fileID: 4606197937947127701, guid: 03b9d31cfc6d29f4fb895c885024f3c1, type: 3}
+      propertyPath: dialogueBossPigeon
+      value: 
+      objectReference: {fileID: 11400000, guid: 897cb5df08cb0684890b056ec253b7d4, type: 2}
+    - target: {fileID: 4606197937947127701, guid: 03b9d31cfc6d29f4fb895c885024f3c1, type: 3}
+      propertyPath: dialogueBossMacaroon
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a69ffc5b4559e94abbc64b749ac9a31, type: 2}
+    - target: {fileID: 4606197937947127701, guid: 03b9d31cfc6d29f4fb895c885024f3c1, type: 3}
+      propertyPath: dialogueBossMouseDefeated
+      value: 
+      objectReference: {fileID: 11400000, guid: 911f502b3b9128743b6c5bcbc54acf8f, type: 2}
+    - target: {fileID: 4606197937947127701, guid: 03b9d31cfc6d29f4fb895c885024f3c1, type: 3}
+      propertyPath: dialogueBossPigeonDefeated
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b4bb2b9ef8f9374a9ba4f6d1bb3d110, type: 2}
+    - target: {fileID: 4606197937947127701, guid: 03b9d31cfc6d29f4fb895c885024f3c1, type: 3}
+      propertyPath: dialogueBossMacaroonDefeated
+      value: 
+      objectReference: {fileID: 11400000, guid: a63b95ce61a77da498a7ccfe75484b07, type: 2}
     - target: {fileID: 4932572977885086292, guid: 03b9d31cfc6d29f4fb895c885024f3c1, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -789,4 +782,3 @@ SceneRoots:
   - {fileID: 1159204469}
   - {fileID: 1654631735}
   - {fileID: 1330751141}
-  - {fileID: 103803515}

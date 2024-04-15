@@ -37,10 +37,12 @@ public class GameManager : MonoBehaviour
     [Header("Dialogues")]
     #region dialogue
     public DialogueScene dialogueOne;
-    public DialogueScene dialogueBossOne;
-    public DialogueScene dialogueBossTwo;
-    public DialogueScene dialogueBossThree;
-    public DialogueScene dialogueEnd;
+    public DialogueScene dialogueBossPigeon;
+    public DialogueScene dialogueBossPigeonDefeated;
+    public DialogueScene dialogueBossMouse;
+    public DialogueScene dialogueBossMouseDefeated;
+    public DialogueScene dialogueBossMacaroon;
+    public DialogueScene dialogueBossMacaroonDefeated;
     #endregion
 
     #region Monobehavior
@@ -256,14 +258,15 @@ public class GameManager : MonoBehaviour
 
         //BossFight
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return DialogueSequence(dialogueBossOne);
+        yield return DialogueSequence(dialogueBossPigeon);
         yield return FightSequence(wave1Data);
+
+        yield return DialogueSequence(dialogueBossPigeonDefeated);
+        yield return new WaitForSeconds(2);
     }
 
     private IEnumerator SecondLevel()
     {
-
-        yield return DialogueSequence(dialogueOne);
 
         //First Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
@@ -276,29 +279,31 @@ public class GameManager : MonoBehaviour
 
         //BossFight
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return DialogueSequence(dialogueBossOne);
+        yield return DialogueSequence(dialogueBossMouse);
         yield return FightSequence(wave1Data);
+
+        yield return DialogueSequence(dialogueBossMouseDefeated);
+        yield return new WaitForSeconds(2);
 
     }
 
     private IEnumerator FinalLevel()
     {
 
-        yield return DialogueSequence(dialogueOne);
 
-        //First Checkpoint
-        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return FightSequence(wave1Data);
+
 
 
         //Second Checkpoint
-        yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
         yield return FightSequence(wave1Data);
 
         //BossFight
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return DialogueSequence(dialogueBossOne);
+        yield return DialogueSequence(dialogueBossMacaroon);
         yield return FightSequence(wave1Data);
+
+        yield return DialogueSequence(dialogueBossMacaroonDefeated);
+        yield return new WaitForSeconds(2);
 
     }
 }

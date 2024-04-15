@@ -44,7 +44,7 @@ public class SummonBase : MobBase
     {
         if (target == player)
         {
-            chooseTarget();
+            target = chooseTarget();
             Move(target);
             _animator.SetBool("Moving", true);
         }

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a1bab84113176f4d8a8c827e0a20c10, type: 3}
-  m_Name: ChefRaccoon
+  m_Name: Rakodi
   m_EditorClassIdentifier: 
-  speakerName: Chef Raccon
+  speakerName: Rakodi
   speakerSprite: {fileID: 21300000, guid: 2c9a02890d828414497f381aaf3c6e67, type: 3}
   pitch: 1.3

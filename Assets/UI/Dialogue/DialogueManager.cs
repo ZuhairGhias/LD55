@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
 
     public static void PlayDialogue(DialogueScene scene)
     {
-        PlayDialogue(scene);
+        instance.playDialogue(scene);
     }
     private void playDialogue(DialogueScene scene)
     {
@@ -82,6 +82,7 @@ public class DialogueManager : MonoBehaviour
         {
             root.Clear();
             scene = null;
+            DialogueFinished?.Invoke();
             return;
         }
 

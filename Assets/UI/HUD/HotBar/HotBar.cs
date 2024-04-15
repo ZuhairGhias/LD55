@@ -26,7 +26,7 @@ public class HotBar : VisualElement
         cells = new List<CollectibleCell>();
         root = new VisualElement();
         root.style.display = DisplayStyle.Flex;
-        root.style.flexDirection = FlexDirection.Row;
+        root.style.flexDirection = FlexDirection.RowReverse;
         root.style.height = SIZE;
         root.style.width = sprites.Length * SIZE;
         hierarchy.Add(root);

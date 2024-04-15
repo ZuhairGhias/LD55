@@ -1,8 +1,10 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +19,10 @@ public class GameManager : MonoBehaviour
     private bool isSceneLoaded = false;
     private bool isDialogueFinished = false;
     private bool isGameStarted = false;
+
+    public Image black;
+    public GameObject deathScreen;
+    public float fadeRate;
 
     [Header("Waves")]
     #region WaveData
@@ -64,6 +70,7 @@ public class GameManager : MonoBehaviour
         WaveSpawner.WaveDefeated += OnWaveDefeated;
         SceneManager.sceneLoaded += SceneLoaded;
         DialogueManager.DialogueFinished += OnDialogueFinished;
+        PlayerController.PlayerDeath += OnPlayerDeath;
     }
 
     // Start is called before the first frame update
@@ -78,7 +85,73 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         PlayerCheckpoint.CheckpointReached -= OnCheckpointReached;
-        WaveSpawner.WaveDefeated += OnWaveDefeated;
+        WaveSpawner.WaveDefeated -= OnWaveDefeated;
+        SceneManager.sceneLoaded -= SceneLoaded;
+        DialogueManager.DialogueFinished -= OnDialogueFinished;
+        PlayerController.PlayerDeath -= OnPlayerDeath;
+    }
+
+    #endregion
+
+    #region PlayerDeath
+
+    public void OnPlayerDeath()
+    {
+        StopGameLoop();
+        StartCoroutine(DeathSequence());
+    }
+
+    private IEnumerator DeathSequence()
+    {
+        Time.timeScale = 0;
+        AudioManager.PauseMusic();
+        AudioManager.PlaySoundEffect("PlayerDeath");
+        yield return FadeToBlack();
+        deathScreen.SetActive(true);
+
+        while (!Input.GetButtonDown("Attack"))
+        {
+            yield return null;
+        }
+
+        deathScreen.SetActive(false);
+        Time.timeScale = 1;
+
+        // Reload the scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartGameLoop() ;
+    }
+
+    private IEnumerator FadeToBlack(bool instantly = false)
+    {
+        if (instantly)
+        {
+            black.color = Color.black;
+        }
+        else
+        {
+            while (black.color.a < 1)
+            {
+                black.color = new Color(0, 0, 0, Mathf.Clamp01(black.color.a + (fadeRate * Time.unscaledDeltaTime)));
+                yield return null;
+            }
+        }
+    }
+
+    private IEnumerator FadeToWhite(bool instantly = false)
+    {
+        if (instantly)
+        {
+            black.color = Color.white;
+        }
+        else
+        {
+            while (black.color.a > 0)
+            {
+                black.color = new Color(0, 0, 0, Mathf.Clamp01(black.color.a - (fadeRate * Time.unscaledDeltaTime)));
+                yield return null;
+            }
+        }
     }
 
     #endregion
@@ -210,6 +283,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameLoop());
     }
 
+    private void StopGameLoop()
+    {
+        StopCoroutine(GameLoop());
+    }
+
     private IEnumerator GameLoop()
     {
         while (true)
@@ -243,6 +321,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WaitForGameStart()
     {
+        yield return FadeToWhite(true);
         isGameStarted = false;
         while(!isGameStarted)
         {
@@ -253,7 +332,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator FirstLevel()
     {
         AudioManager.SetMusicTrack("Level 1 loop");
-        AudioManager.PlayMusic();
+        AudioManager.PlayMusic(true);
+        yield return FadeToBlack(true);
+        yield return FadeToWhite();
 
         yield return DialogueSequence(dialogueOne);
         
@@ -272,13 +353,18 @@ public class GameManager : MonoBehaviour
         yield return FightSequence(wave1Data);
 
         yield return DialogueSequence(dialogueBossPigeonDefeated);
-        yield return new WaitForSeconds(2);
+        AudioManager.PauseMusic(true);
+        yield return FadeToBlack();
+
     }
 
     private IEnumerator SecondLevel()
     {
         AudioManager.SetMusicTrack("Level 2 loop");
-        AudioManager.PlayMusic();
+        AudioManager.PlayMusic(true); 
+        yield return FadeToBlack(true);
+        yield return FadeToWhite();
+
 
         //First Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
@@ -295,17 +381,18 @@ public class GameManager : MonoBehaviour
         yield return FightSequence(wave1Data);
 
         yield return DialogueSequence(dialogueBossMouseDefeated);
-        yield return new WaitForSeconds(2);
+        AudioManager.PauseMusic(true);
+        yield return FadeToBlack();
+
 
     }
 
     private IEnumerator FinalLevel()
     {
-
-
         AudioManager.SetMusicTrack("Level 3 loop");
-        AudioManager.PlayMusic();
-
+        AudioManager.PlayMusic(true);
+        yield return FadeToBlack(true);
+        yield return FadeToWhite();
 
         //Second Checkpoint
         yield return FightSequence(wave1Data, false);
@@ -315,12 +402,13 @@ public class GameManager : MonoBehaviour
         yield return FightSequence(wave1Data, false);
 
         yield return DialogueSequence(dialogueBossMacaroonDefeated);
-        yield return new WaitForSeconds(2);
-
+        AudioManager.PauseMusic(true);
+        yield return FadeToBlack();
     }
 
     public IEnumerator WaitForCreditsEnd()
     {
+        yield return FadeToWhite(true);
         while (!CreditManager.CreditsFinished)
         {
             yield return null;

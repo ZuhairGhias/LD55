@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public GameObject checkPoint;
-    public Transform player;
+    public PlayerController player;
     public CameraMovement cameraMovement;
     public float checkPointSpawnedDistance = 10;
     private bool checkPointReached = false;
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
 
     private void GetPlayerandCamera()
     {
-        player = FindObjectOfType<PlayerController>()?.transform;
+        player = FindObjectOfType<PlayerController>();
         //DebugUtils.HandleErrorIfNullGetComponent(player, this);
         cameraMovement = FindObjectOfType<CameraMovement>();
         //DebugUtils.HandleErrorIfNullGetComponent(cameraMovement, this);
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     #region CHeckpoint
     private void CreateNewCheckPoint(float distance)
     {
-        Instantiate(checkPoint, player.position + (Vector3.right * distance), Quaternion.identity);
+        Instantiate(checkPoint, player.transform.position + (Vector3.right * distance), Quaternion.identity);
         checkPointReached = false;
 
     }
@@ -125,9 +125,6 @@ public class GameManager : MonoBehaviour
         yield return WaitForWaveToBeDefeated();
 
         cameraMovement.cameraState = CameraMovement.CameraStates.Active;
-
-
-        yield return null;
     }
 
     private void OnWaveDefeated()
@@ -148,8 +145,11 @@ public class GameManager : MonoBehaviour
     #region Dialogue
     private IEnumerator DialogueSequence(DialogueScene dialogue)
     {
-
-        yield return null;
+        player.CurrentState = PlayerController.PlayerState.WAIT;
+        isDialogueFinished = false;
+        DialogueManager.PlayDialogue(dialogue);
+        yield return WaitForDialogueToFinish();
+        player.CurrentState = PlayerController.PlayerState.READY;
     }
 
     private IEnumerator WaitForDialogueToFinish()
@@ -199,8 +199,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator FirstLevel()
     {
-        
 
+        yield return DialogueSequence(dialogueOne);
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
         yield return FightSequence(waveData);
         //DialogueManager.Play(DIALOGUE_DATA)

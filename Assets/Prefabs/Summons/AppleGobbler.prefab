@@ -101,11 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   targetRange: 10
-  attackRange: 1
+  attackRange: 2
   attackDuration: 3
-  maxHealth: 4
-  meleeDamage: 3
+  maxHealth: 6
+  meleeDamage: 2
   deathSound: {fileID: 0}
+  hurtSound: {fileID: 0}
   drops: []
   dropRate: 0.5
   summonSound: {fileID: 0}

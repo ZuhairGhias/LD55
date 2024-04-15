@@ -190,7 +190,7 @@ public class MobBase : MonoBehaviour, IDamageable
 
         foreach(Collectible drop in drops)
         {
-            if(Random.Range(0, 1) < dropRate)
+            if(Random.Range(0.0f, 1.0f) < dropRate)
             {
                 Instantiate(drop, transform.position, Quaternion.identity);
             }

@@ -264,12 +264,12 @@ public class GameManager : MonoBehaviour
 
         //Second Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(wave2Data);
 
         //BossFight
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
         yield return DialogueSequence(dialogueBossPigeon);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(Boss1Data);
 
         yield return DialogueSequence(dialogueBossPigeonDefeated);
         yield return new WaitForSeconds(2);
@@ -282,17 +282,17 @@ public class GameManager : MonoBehaviour
 
         //First Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(wave3Data);
 
 
         //Second Checkpoint
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(wave4Data);
 
         //BossFight
         yield return CreateAndWaitForCheckPoint(checkPointSpawnedDistance);
         yield return DialogueSequence(dialogueBossMouse);
-        yield return FightSequence(wave1Data);
+        yield return FightSequence(Boss2Data);
 
         yield return DialogueSequence(dialogueBossMouseDefeated);
         yield return new WaitForSeconds(2);
@@ -306,13 +306,15 @@ public class GameManager : MonoBehaviour
         AudioManager.SetMusicTrack("Level 3 loop");
         AudioManager.PlayMusic();
 
+        //First Checkpoint
+        yield return FightSequence(wave5Data, false);
 
         //Second Checkpoint
-        yield return FightSequence(wave1Data, false);
+        yield return FightSequence(wave6Data, false);
 
         //BossFight
         yield return DialogueSequence(dialogueBossMacaroon);
-        yield return FightSequence(wave1Data, false);
+        yield return FightSequence(Boss3Data, false);
 
         yield return DialogueSequence(dialogueBossMacaroonDefeated);
         yield return new WaitForSeconds(2);

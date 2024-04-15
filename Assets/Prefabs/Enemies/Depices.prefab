@@ -121,8 +121,8 @@ MonoBehaviour:
   moveSpeed: 1.5
   targetRange: 14
   attackRange: 3
-  attackDuration: 5
-  maxHealth: 30
+  attackDuration: 3
+  maxHealth: 40
   meleeDamage: 4
   deathSound: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: fcfd1b138ad6a7d429a7a77e337f29bb, type: 3}

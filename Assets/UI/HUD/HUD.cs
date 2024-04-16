@@ -8,6 +8,7 @@ public class HUD : MonoBehaviour
     [SerializeField] private int maxHealth = 5;
     [SerializeField] private VisualTreeAsset hotBarCellAsset;
     [SerializeField] private VisualTreeAsset heartAsset;
+    [SerializeField] private StyleSheet hudStyles;
     public float health;
     public List<InventorySlot> slots;
     private VisualElement hud;
@@ -25,6 +26,7 @@ public class HUD : MonoBehaviour
     {
         UIDocument ui = GetComponent<UIDocument>();
         hud = ui.rootVisualElement;
+        hud.styleSheets.Add(hudStyles);
         hud.Clear();
 
         // Set up health bar

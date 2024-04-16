@@ -29,7 +29,7 @@ public class PlayerSummoner : MonoBehaviour
                 {
                     Debug.Log("Made a recipe for " + recipe.Summon.name);
                     inventory.ConsumeStagedItems();
-                    Instantiate(recipe.Summon, transform.position, Quaternion.identity);
+                    Instantiate(recipe.Summon, transform.position + (Vector3.down), Quaternion.identity);
                 }
             }
 

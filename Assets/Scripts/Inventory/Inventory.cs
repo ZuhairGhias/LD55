@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
 using static InventoryItem;
-using static UnityEditor.Progress;
 
 /// <summary>
 /// Can be added to the player and configured in the editor. Colletion items should look for this item and add themselves probably. The Summon script will need to use the items here, making sure it isn't empty.

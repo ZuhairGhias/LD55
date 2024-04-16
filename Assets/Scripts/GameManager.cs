@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
     {
         if (instantly)
         {
-            black.color = Color.white;
+            black.color = new Color(0, 0, 0, 0);
         }
         else
         {
@@ -321,7 +321,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WaitForGameStart()
     {
-        yield return FadeToWhite(true);
         isGameStarted = false;
         while(!isGameStarted)
         {

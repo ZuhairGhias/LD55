@@ -193,6 +193,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8d18210a2d99c574d8ece1fb5a1232b3, type: 3}
   - {fileID: 8300000, guid: c80eea0df66b49b459d8758bece4cc18, type: 3}
   - {fileID: 8300000, guid: 01147b28230b09c4d82b9b63252a294a, type: 3}
+  - {fileID: 8300000, guid: e189fa3f24284e946a15e9597c2a0514, type: 3}
   Jukebox: {fileID: 6583116044897961771}
   FXplayer: {fileID: 50600571527783369}
 --- !u!1 &8789047899447430130

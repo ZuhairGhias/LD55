@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 public class HUD : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 5;
+    [SerializeField] private VisualTreeAsset hotBarCellAsset;
+    [SerializeField] private VisualTreeAsset heartAsset;
     public float health;
     public List<InventorySlot> slots;
     private VisualElement hud;
@@ -26,7 +28,7 @@ public class HUD : MonoBehaviour
         hud.Clear();
 
         // Set up health bar
-        healthBar = new HealthBar(maxHealth);
+        healthBar = new HealthBar(maxHealth, heartAsset);
         healthBar.name = "HealthBar";
         hud.Add(healthBar);
 
@@ -40,7 +42,7 @@ public class HUD : MonoBehaviour
             capacities[i] = slots[i].capacity;
             inputKeys[i] = slots[i].inputKey;
         }
-        hotBar = new HotBar(sprites, capacities, inputKeys);
+        hotBar = new HotBar(sprites, capacities, inputKeys, hotBarCellAsset);
         hotBar.name = "HotBar";
         hud.Add(hotBar);
     }

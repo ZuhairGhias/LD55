@@ -4,18 +4,14 @@ using UnityEngine.UIElements;
 
 public class Dialogue : VisualElement
 {
-    [UnityEngine.Scripting.Preserve]
-    public new class UxmlFactory : UxmlFactory<Dialogue> { }
 
     private VisualElement speakerImage;
     private Label speakerText;
     private Label dialogueText;
 
-    public Dialogue() : this(AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Portrait/PlayerPortrait.png"), "Chef Raccoon") { }
-
-    public Dialogue(Sprite speakerSprite, string speakerName)
+    public Dialogue(Sprite speakerSprite, string speakerName, VisualTreeAsset dialogueAsset)
     {
-        VisualElement dialogue = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/Dialogue/Dialogue.uxml").Instantiate();
+        VisualElement dialogue = dialogueAsset.Instantiate();
         dialogue.style.position = Position.Absolute;
         dialogue.style.top = 0;
         dialogue.style.bottom = 0;

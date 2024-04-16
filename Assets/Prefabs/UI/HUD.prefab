@@ -64,6 +64,7 @@ MonoBehaviour:
   maxHealth: 5
   hotBarCellAsset: {fileID: 9197481963319205126, guid: a707c38c55ded2049aef849dfe2160af, type: 3}
   heartAsset: {fileID: 9197481963319205126, guid: 1f915e778e0212c42b6af8cd22b1a590, type: 3}
+  hudStyles: {fileID: 7433441132597879392, guid: 3d086f4c6a7692a408b3fd570cac5ef7, type: 3}
   health: 5
   slots:
   - InventoryItem: {fileID: 11400000, guid: e6e5ae8f7142f1341a61fcc7ef91456c, type: 2}

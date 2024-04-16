@@ -322,6 +322,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WaitForGameStart()
     {
+        AudioManager.SetMusicTrack("main-menu");
+        AudioManager.PlayMusic(true);
+
         isGameStarted = false;
         while(!isGameStarted)
         {
@@ -410,6 +413,9 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator WaitForCreditsEnd()
     {
+        AudioManager.SetMusicTrack("main-menu");
+        AudioManager.PlayMusic(true);
+
         yield return FadeToWhite(true);
         while (!CreditManager.CreditsFinished)
         {

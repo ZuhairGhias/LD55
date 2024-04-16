@@ -9,12 +9,11 @@ public class CollectibleCell : VisualElement
 
     private int count;
     private int capacity;
-    private VisualElement icon;
     private Label countLabel;
 
-    public CollectibleCell() : this(AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Collectibles/CrustyBread.png"), 30, 50) { }
+    public CollectibleCell() : this(AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Collectibles/CrustyBread.png"), 30, "u", 50) { }
 
-    public CollectibleCell(Sprite item, int capacity ,int size)
+    public CollectibleCell(Sprite item, int capacity, string inputKey,int size)
     {
         this.count = 0;
         this.capacity = capacity;
@@ -22,9 +21,11 @@ public class CollectibleCell : VisualElement
         cell.style.height = size;
         cell.style.width = size;
         hierarchy.Add(cell);
-        icon = cell.Query("Icon").First();
+        VisualElement icon = cell.Query("Icon").First();
         icon.style.backgroundImage = new StyleBackground(item);
         countLabel = (Label)cell.Query("Count").First();
+        Label inputKeyLabel = (Label)cell.Query("InputKey").First();
+        inputKeyLabel.text = inputKey;
         UpdateCount(count);
     }
 

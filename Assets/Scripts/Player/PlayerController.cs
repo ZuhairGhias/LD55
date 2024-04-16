@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         // Not Yet!
         //Destroy(gameObject);
+        animator.SetTrigger("Dead");
         PlayerDeath?.Invoke();
     }
 }

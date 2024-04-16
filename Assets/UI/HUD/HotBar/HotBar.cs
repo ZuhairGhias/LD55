@@ -19,9 +19,9 @@ public class HotBar : VisualElement
         AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Collectibles/CrustyBread.png")
     };
 
-    public HotBar(): this(sampleSprites, new int[3] { 30, 30, 30 }) { }
+    public HotBar(): this(sampleSprites, new int[3] { 30, 30, 30 }, new string[] { "u", "i", "o" }) { }
 
-    public HotBar(Sprite[] sprites, int[] capacities)
+    public HotBar(Sprite[] sprites, int[] capacities, string[] inputKeys)
     {
         cells = new List<CollectibleCell>();
         root = new VisualElement();
@@ -32,7 +32,7 @@ public class HotBar : VisualElement
         hierarchy.Add(root);
         for (int i = 0; i < sprites.Length; i++)
         {
-            cells.Add(new CollectibleCell(sprites[i], capacities[i], SIZE));
+            cells.Add(new CollectibleCell(sprites[i], capacities[i], inputKeys[i], SIZE));
             root.Add(cells[i]);
         }
     }
@@ -44,7 +44,7 @@ public class HotBar : VisualElement
 
     public void AddNewSlot(InventorySlot slot)
     {
-        cells.Add(new CollectibleCell(slot.InventoryItem.ItemSprite, slot.capacity, SIZE));
+        cells.Add(new CollectibleCell(slot.InventoryItem.ItemSprite, slot.capacity, slot.inputKey, SIZE));
         root.Add(cells[cells.Count - 1]);
         root.style.width = cells.Count * SIZE;
     }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -97,15 +98,27 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Track " + trackName + " not found in AudioManager!");
     }
 
-    public static void PlayMusic()
+    public static void PlayMusic(bool fade = false)
     {
-        
         Instance.Jukebox.Play();
+
+        if (fade)
+        {
+            Instance.Jukebox.volume = 0;
+            Instance.Jukebox.DOFade(GetCurrentVolume(), 2);
+        }
     }
 
-    public static void PauseMusic()
+    public static void PauseMusic(bool fade = false)
     {
 
-        Instance.Jukebox.Pause();
+        if (fade)
+        {
+            Instance.Jukebox.DOFade(0, 2);
+        }
+        else
+        {
+            Instance.Jukebox.Pause();
+        }
     }
 }

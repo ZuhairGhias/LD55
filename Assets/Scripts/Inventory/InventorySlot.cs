@@ -10,6 +10,7 @@ public class InventorySlot
     public InventoryItem InventoryItem;
     public int count;
     public int capacity;
+    public string inputKey;
 
     // Only add if not at capacity. Return false if already at capacity. True if successfully added.
     public bool Add(int i = 1)

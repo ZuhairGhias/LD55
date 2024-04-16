@@ -489,39 +489,49 @@ MonoBehaviour:
     - enemyData: {fileID: 11400000, guid: 7f56d87e8c987264bb520ca286ab8004, type: 2}
       count: 4
     - enemyData: {fileID: 11400000, guid: f5ecc600766310a4aa06773ad6ad2ed1, type: 2}
-      count: 5
+      count: 4
+    - enemyData: {fileID: 11400000, guid: f0107a2878fc6f341aada28e130b8f16, type: 2}
+      count: 1
   Boss2Data:
     spawnRate: 2
     enemies:
     - enemyData: {fileID: 11400000, guid: 794d79a5aaee50447809547a673588ac, type: 2}
       count: 1
     - enemyData: {fileID: 11400000, guid: 7f56d87e8c987264bb520ca286ab8004, type: 2}
-      count: 5
-    - enemyData: {fileID: 11400000, guid: f5ecc600766310a4aa06773ad6ad2ed1, type: 2}
       count: 4
+    - enemyData: {fileID: 11400000, guid: f5ecc600766310a4aa06773ad6ad2ed1, type: 2}
+      count: 3
+    - enemyData: {fileID: 11400000, guid: f0107a2878fc6f341aada28e130b8f16, type: 2}
+      count: 2
   wave5Data:
     spawnRate: 3
     enemies:
     - enemyData: {fileID: 11400000, guid: 7f56d87e8c987264bb520ca286ab8004, type: 2}
-      count: 5
+      count: 4
     - enemyData: {fileID: 11400000, guid: f5ecc600766310a4aa06773ad6ad2ed1, type: 2}
-      count: 6
+      count: 4
+    - enemyData: {fileID: 11400000, guid: f0107a2878fc6f341aada28e130b8f16, type: 2}
+      count: 3
   wave6Data:
     spawnRate: 2
     enemies:
     - enemyData: {fileID: 11400000, guid: 7f56d87e8c987264bb520ca286ab8004, type: 2}
-      count: 6
+      count: 4
     - enemyData: {fileID: 11400000, guid: f5ecc600766310a4aa06773ad6ad2ed1, type: 2}
-      count: 7
+      count: 5
+    - enemyData: {fileID: 11400000, guid: f0107a2878fc6f341aada28e130b8f16, type: 2}
+      count: 4
   Boss3Data:
     spawnRate: 1
     enemies:
     - enemyData: {fileID: 11400000, guid: e4bd895c1965a3040b2017cc9971eaad, type: 2}
       count: 1
     - enemyData: {fileID: 11400000, guid: 7f56d87e8c987264bb520ca286ab8004, type: 2}
-      count: 7
+      count: 4
     - enemyData: {fileID: 11400000, guid: f5ecc600766310a4aa06773ad6ad2ed1, type: 2}
-      count: 6
+      count: 4
+    - enemyData: {fileID: 11400000, guid: f0107a2878fc6f341aada28e130b8f16, type: 2}
+      count: 5
   dialogueOne: {fileID: 11400000, guid: b5c0065fd8516ef45a36d9efce38a01a, type: 2}
   dialogueBossPigeon: {fileID: 11400000, guid: f2db9943f5f384641aea7b3fbb13523c, type: 2}
   dialogueBossPigeonDefeated: {fileID: 11400000, guid: 911f502b3b9128743b6c5bcbc54acf8f, type: 2}

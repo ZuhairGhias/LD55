@@ -14,55 +14,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -372681996465171212, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_Offset.y
-      value: 1.07
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
-      propertyPath: hurtSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 2af4388fedf4b364ab2f8d5ae2891631, type: 3}
-    - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: maxHealth
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: moveSpeed
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: deathSound
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: fcfd1b138ad6a7d429a7a77e337f29bb, type: 3}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: attackRange
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: meleeDamage
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: targetRange
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: attackDuration
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
-      propertyPath: drops.Array.data[2]
-      value: 
-      objectReference: {fileID: 1218131760427048982, guid: 24a85b0f7c5eccc25a3430c80cf1c11c, type: 3}
     - target: {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_Name
-      value: Maccaroon
+      value: Squirrel
       objectReference: {fileID: 0}
     - target: {fileID: 5542263987398744524, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.637803
+      value: 9.996797
       objectReference: {fileID: 0}
     - target: {fileID: 5542263987398744524, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.012100697
+      value: -1.7879858
       objectReference: {fileID: 0}
     - target: {fileID: 5542263987398744524, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -97,15 +89,46 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9155593176203723990, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9155593176203723990, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: beebd9907f031e6479643bb774537420, type: 3}
-    m_RemovedComponents: []
+      objectReference: {fileID: 21300000, guid: 44b81c3e13d4b014f97bd43db519d007, type: 3}
+    m_RemovedComponents:
+    - {fileID: 2555440212036537102, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3140617483815288633}
   m_SourcePrefab: {fileID: 100100000, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+--- !u!1 &7012412630228818572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5271848488718823985, guid: 71778e4f7a196bc4782fe4f9fae099d6, type: 3}
+  m_PrefabInstance: {fileID: 2916158165248878781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3140617483815288633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7012412630228818572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec31fa5c8306eb4b91b1151363380c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  targetRange: 16
+  attackRange: 5
+  attackDuration: 2
+  maxHealth: 1
+  meleeDamage: 3
+  deathSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: fcfd1b138ad6a7d429a7a77e337f29bb, type: 3}
+  drops:
+  - {fileID: 1218131760427048982, guid: 24a85b0f7c5eccc25a3430c80cf1c11c, type: 3}
+  - {fileID: 1809039289764753432, guid: b9701e798e899cbda8bf81b3b26bf36d, type: 3}
+  - {fileID: 6562421301327330515, guid: e8d9f043050b9e472979c77963f3c066, type: 3}
+  dropRate: 1
+  EggProjectile: {fileID: 6111881253501461670, guid: 3dbf0f3252f1741498b0628e97c9bee3, type: 3}

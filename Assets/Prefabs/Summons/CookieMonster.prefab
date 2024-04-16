@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  targetRange: 10
+  targetRange: 14
   attackRange: 6
   attackDuration: 3
   maxHealth: 3

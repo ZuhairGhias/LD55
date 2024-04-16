@@ -102,7 +102,7 @@ MonoBehaviour:
   moveSpeed: 2
   targetRange: 10
   attackRange: 2
-  attackDuration: 3
+  attackDuration: 2
   maxHealth: 6
   meleeDamage: 2
   deathSound: {fileID: 0}

@@ -18,5 +18,6 @@ public enum EnemyType
     Trashcant,
     Mousse,
     Depices,
-    BigMac
+    BigMac,
+    Squirrel
 }

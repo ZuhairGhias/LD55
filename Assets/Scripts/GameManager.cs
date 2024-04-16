@@ -10,6 +10,7 @@ using static UnityEngine.GraphicsBuffer;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
+    private static IEnumerator coroutine;
     public GameObject checkPoint;
     public PlayerController player;
     public CameraMovement cameraMovement;
@@ -281,12 +282,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void StartGameLoop()
     {
-        StartCoroutine(GameLoop());
+        coroutine = GameLoop();
+        StartCoroutine(coroutine);
     }
 
     private void StopGameLoop()
     {
-        StopCoroutine(GameLoop());
+        StopCoroutine(coroutine);
     }
 
     private IEnumerator GameLoop()

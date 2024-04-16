@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource Jukebox;
     public AudioSource FXplayer;
 
-    private const string VolumePrefKey = "Volume";
+    public const string VolumePrefKey = "Volume";
 
     private static AudioManager Instance;
 

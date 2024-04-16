@@ -96,6 +96,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogue.UpdateText(scene.lines[lineIndex]);
         audioSource.pitch = speaker.pitch;
+        audioSource.volume = PlayerPrefs.GetFloat(AudioManager.VolumePrefKey, 0.5f);
         audioSource.Play();
     }
 }

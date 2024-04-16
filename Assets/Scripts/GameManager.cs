@@ -243,6 +243,7 @@ public class GameManager : MonoBehaviour
     {
         player.CurrentState = PlayerController.PlayerState.WAIT;
         isDialogueFinished = false;
+        yield return new WaitForSeconds(1);
         DialogueManager.PlayDialogue(dialogue);
         yield return WaitForDialogueToFinish();
         player.CurrentState = PlayerController.PlayerState.READY;

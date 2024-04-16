@@ -5,24 +5,15 @@ using UnityEngine.UIElements;
 
 public class HotBar : VisualElement
 {
-    [UnityEngine.Scripting.Preserve]
-    public new class UxmlFactory : UxmlFactory<HotBar> { }
 
     private const int SIZE = 75;
     private VisualElement root;
     private List<CollectibleCell> cells;
+    private VisualTreeAsset cellAsset;
 
-    private static Sprite[] sampleSprites = new Sprite[]
+    public HotBar(Sprite[] sprites, int[] capacities, string[] inputKeys, VisualTreeAsset cellAsset)
     {
-        AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Collectibles/BananaPeel.png"),
-        AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Collectibles/CandyWrap.png"),
-        AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Collectibles/CrustyBread.png")
-    };
-
-    public HotBar(): this(sampleSprites, new int[3] { 30, 30, 30 }, new string[] { "u", "i", "o" }) { }
-
-    public HotBar(Sprite[] sprites, int[] capacities, string[] inputKeys)
-    {
+        this.cellAsset = cellAsset;
         cells = new List<CollectibleCell>();
         root = new VisualElement();
         root.style.display = DisplayStyle.Flex;
@@ -32,7 +23,7 @@ public class HotBar : VisualElement
         hierarchy.Add(root);
         for (int i = 0; i < sprites.Length; i++)
         {
-            cells.Add(new CollectibleCell(sprites[i], capacities[i], inputKeys[i], SIZE));
+            cells.Add(new CollectibleCell(sprites[i], capacities[i], inputKeys[i], SIZE, cellAsset));
             root.Add(cells[i]);
         }
     }
@@ -44,7 +35,7 @@ public class HotBar : VisualElement
 
     public void AddNewSlot(InventorySlot slot)
     {
-        cells.Add(new CollectibleCell(slot.InventoryItem.ItemSprite, slot.capacity, slot.inputKey, SIZE));
+        cells.Add(new CollectibleCell(slot.InventoryItem.ItemSprite, slot.capacity, slot.inputKey, SIZE, cellAsset));
         root.Add(cells[cells.Count - 1]);
         root.style.width = cells.Count * SIZE;
     }

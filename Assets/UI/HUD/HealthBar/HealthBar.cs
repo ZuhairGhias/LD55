@@ -5,8 +5,6 @@ using UnityEngine.UIElements;
 
 public class HealthBar : VisualElement
 {
-    [UnityEngine.Scripting.Preserve]
-    public new class UxmlFactory : UxmlFactory<HealthBar> { }
 
     private int maxHealth;
     private float health;
@@ -14,9 +12,7 @@ public class HealthBar : VisualElement
     private VisualElement root;
     private List<Heart> hearts;
 
-    public HealthBar(): this(5) { }
-
-    public HealthBar(int maxHealth)
+    public HealthBar(int maxHealth, VisualTreeAsset heartAsset)
     {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
@@ -29,7 +25,7 @@ public class HealthBar : VisualElement
         hierarchy.Add(root);
         for (int i = 0; i < maxHealth; i++)
         {
-            hearts.Add(new Heart(0, SIZE));
+            hearts.Add(new Heart(0, SIZE, heartAsset));
             root.Add(hearts[i]);
         }
         UpdateHealth(health);

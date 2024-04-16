@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     private VisualElement root;
     private AudioSource audioSource;
     private Dialogue dialogue;
+    [SerializeField] private VisualTreeAsset dialogueAsset;
 
     private static DialogueManager instance;
 
@@ -63,7 +64,7 @@ public class DialogueManager : MonoBehaviour
     {
         this.scene = scene;
         this.lineIndex = -1;
-        dialogue = new Dialogue();
+        dialogue = new Dialogue(scene.speakers[0].speakerSprite, scene.speakers[0].speakerName, dialogueAsset);
         dialogue.style.position = Position.Absolute;
         dialogue.style.top = 0;
         dialogue.style.bottom = 0;

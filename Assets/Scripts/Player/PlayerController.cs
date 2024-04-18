@@ -147,6 +147,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         Debug.Log(Health);
         PlayerDamage?.Invoke( (float)Health / (float)maxHealth );
         AudioManager.PlaySoundEffect("player-damage-cry");
+        animator.SetTrigger("Damaged");
     }
 
     void Die()

@@ -90,7 +90,7 @@ public class MobBase : MonoBehaviour, IDamageable
             Move(target);
             _animator.SetBool("Moving", true);
 
-            if (Vector3.Distance(transform.position, target.GetComponent<Collider2D>().bounds.center) <= attackRange) SET_STATE(MobState.ATTACK);
+            if (Vector3.Distance(transform.position, target.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position)) <= attackRange) SET_STATE(MobState.ATTACK);
         }
     }
 

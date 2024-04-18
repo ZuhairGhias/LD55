@@ -685,8 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64076289eb163954490755c5209e71f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedX: 4
-  moveSpeedY: 1
+  moveSpeedX: 5
+  moveSpeedY: 2
   attackDuration: 0.3
   attackDamage: 0.5
   attackHitbox: {fileID: 7142736630659366319}
@@ -709,12 +709,15 @@ MonoBehaviour:
   - InventoryItem: {fileID: 11400000, guid: 47878100f0baab44f848bb141cb29b37, type: 2}
     count: 2
     capacity: 10
+    inputKey: 
   - InventoryItem: {fileID: 11400000, guid: e6e5ae8f7142f1341a61fcc7ef91456c, type: 2}
     count: 1
     capacity: 10
+    inputKey: 
   - InventoryItem: {fileID: 11400000, guid: 204b64d8b568aea4687ecf47758fcc2b, type: 2}
     count: 2
     capacity: 10
+    inputKey: 
   stagedObjects:
   - {fileID: 1739261437831704497}
   - {fileID: 1495737077188773326}

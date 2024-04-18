@@ -396,8 +396,8 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.SetMusicTrack("Level 3 loop");
         AudioManager.PlayMusic(true);
-        yield return FadeToBlack(true);
-        yield return FadeToWhite();
+        FadeToBlack(true);
+        StartCoroutine(FadeToWhite());
         //First Checkpoint
         yield return FightSequence(wave5Data, false);
 

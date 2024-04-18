@@ -10,8 +10,12 @@ public class Collectible : MonoBehaviour
 
     void Start()
     {
-        transform.DOMoveX(transform.position.x + Random.Range(-1f, 1f), 1).SetEase(Ease.OutExpo);
-        transform.DOMoveY(Mathf.Max(transform.position.y - 0.5f), 1).SetEase(Ease.OutBounce);
+        //transform.DOPunchPosition(Vector3.up/2, 2f, 2).SetEase(Ease.OutBounce);
+
+        //HACK
+        float targetx = FindObjectOfType<PlayerController>().transform.position.x;
+        transform.DOMoveX(transform.position.x + ((targetx > transform.position.x ? 1 : -1) * Random.Range(0.1f,1f)), 1).SetEase(Ease.OutExpo);
+
     }
 
     private void OnDestroy()
